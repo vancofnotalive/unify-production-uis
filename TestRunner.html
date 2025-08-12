@@ -1,0 +1,2459 @@
+<html><head>
+    <meta name="viewport" content="width=device-width">
+    
+    <title>Unify - login</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="/Style/Css/Account_SignUp.css">
+<style>
+    img {
+    width: 100%;
+}
+
+body {
+    position: absolute;
+    justify-content: center;
+}
+
+* {
+    scrollbar-width: none;
+}
+
+.page {
+    position: absolute;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+.background-image main {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 00%;
+    position: absolute;
+    display: flex;
+    align-items: flex-start;
+    /* background: #1e3a8a; */
+    /* background: url('https://miro.medium.com/v2/resize:fit:5212/1*9YTwtT1aHKDqq83DqyBzrw.png'); */
+    /* background: url('https://i.pinimg.com/originals/9b/14/c4/9b14c40010dbb429b2d5717ac777d419.jpg');   */
+    background: url('https://i.postimg.cc/xCh0tK2j/image.png');
+    background-size: 200% auto;
+    background-position: center;
+    transform: skew(10deg);
+    filter: blur(0dvh) brightness(90%);
+    
+    /* background-color: rgb(39, 75, 85); */
+    /* background-color: rgb(255, 255, 255); */
+    /* background-color: rgb(1, 23, 41); */
+    
+
+
+    animation: backgroundMove 25s infinite linear;
+}
+
+@keyframes backgroundMove {
+    0% {
+        background-position-x: 0%;
+    }
+
+    50% {
+        background-position-x: 100%;
+    }
+
+    100% {
+        background-position-x: 200%;
+    }
+}
+
+.background-image img {
+    position: relative;
+    transform: scaleX(-1);
+}
+
+.form {
+    position: relative;
+    align-self: center;
+    /* background-color: rgba(255, 255, 255, 0.7); */
+opacity: 0;
+
+    overflow: hidden;
+    border-radius: 2dvh;
+    display: flex;
+    z-index: +2;
+}
+
+.form-image {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    /* background-color: rgb(0, 84, 209); */
+    background-color: rgb(255, 255, 255, 1);
+    transform: translate(0%, 0);
+    transition: 400ms transform;
+    transition: 400ms background;
+}
+
+    .form-image section {
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .form-image main {
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .form-image main img {
+            transition: 400ms opacity;
+        }
+
+.form-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: rgba(255, 255, 255, 0.9); */
+    background-color: rgb(0, 84, 209, 0.950);
+}
+
+.form-content-heading {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+img {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+}
+
+.form-content-heading--input {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+    .form-content-heading--input main {
+        display: flex;
+        background-color: rgb(255, 255, 255);
+        border-radius: 1dvh;
+        border-style: solid;
+        border-color: rgb(255, 255, 255);
+        justify-content: space-between;
+    }
+
+        .form-content-heading--input main span {
+            display: flex;
+            /* background-color: rgb(0, 84, 209 , 0.950); */
+            background-color: rgba(44, 44, 44, 0.95);
+            align-items: center;
+            border-radius: 1dvh;
+            color: white;
+            font-weight: 700;
+            justify-content: center;
+        }
+
+        .form-content-heading--input main input {
+            background-color: transparent;
+            text-indent: 1ch;
+            color: rgb(78, 78, 78);
+            border-radius: 1dvh;
+        }
+
+    .form-content-heading--input h1 {
+        color: rgb(255, 255, 255);
+        display: flex;
+        align-items: center;
+        background-color: rgb(255, 0, 0);
+        border-radius: 1dvh;
+        transform: scale(0);
+        transition: 400ms;
+    }
+
+        .form-content-heading--input h1 span {
+            margin-left: 1ch !important;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+    .form-content-heading--input #errorMessage * {
+    }
+
+.form-content-date {
+    background-color: white;
+    border-color: white;
+    border-style: solid;
+    border-radius: 1dvh;
+}
+
+.form-content-date-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-content-date-container-key {
+    /* background-color: rgb(0, 84, 209 , 0.950); */
+    background-color: rgba(44, 44, 44, 0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1dvh;
+    color: white;
+}
+
+    .form-content-date-container-key span {
+        font-weight: 700;
+    }
+
+.form-content-date-container-value {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    justify-content: center;
+}
+
+    .form-content-date-container-value h1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 500;
+        /* color: rgb(0, 84, 209 , 0.950); */
+        color: rgba(44, 44, 44, 0.95);
+    }
+
+    .form-content-date-container-value input {
+        position: absolute;
+        opacity: 0;
+    }
+
+    .form-content-date-container-value span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* border-bottom: 0.1dvh solid rgb(0, 84, 209 , 0.950); */
+        border-bottom: 0.1dvh solid rgba(44, 44, 44, 0.95);
+    }
+
+        .form-content-date-container-value span strong {
+            font-weight: 400;
+            color: rgb(100, 100, 100);
+        }
+
+    .form-content-date-container-value h6 {
+        background-color: crimson;
+        height: 0 !important;
+        overflow: hidden;
+    }
+
+.form-content-date-main-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.form-content-date-main-container-error-message {
+    background-color: rgb(255, 0, 0);
+    border-radius: 1dvh;
+    display: flex;
+    align-items: center;
+    transform: scale(0);
+}
+
+    .form-content-date-main-container-error-message span {
+        margin-left: 1ch !important;
+        color: white;
+        font-weight: 700;
+    }
+
+.form-content-btn-row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-content-create-btn {
+    position: absolute;
+    right: 0;
+    /* background-color: rgb(0, 26, 255 , 0); */
+    background-color: rgba(44, 44, 44, 0.80);
+    display: flex;
+    flex-direction: column;
+    border-radius: 2dvh;
+    align-items: center;
+    border-style: solid;
+    border-color: white;
+    color: white;
+    cursor: pointer;
+    transition: 200ms border;
+    transition: 200ms background 200ms;
+    transition: 200ms transform;
+}
+
+    .form-content-create-btn main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .form-content-create-btn:hover {
+        border-color: rgb(219, 219, 219);
+        background-color: rgba(44, 44, 44, 0.95);
+        /* border-color: rgb(0, 69, 172);
+    background-color: rgb(0, 63, 158); */
+        transform: scale(1.020) translateY(-3%);
+    }
+
+.already-have-account {
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .already-have-account a {
+        color: #f0f0f0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-weight: 400;
+    }
+
+        .already-have-account a span {
+            color: rgb(255, 255, 255);
+        }
+
+@keyframes errorMessageShow {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) translateY(-3%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0%);
+    }
+}
+
+@keyframes horizontal-shaking {
+    0% {
+        transform: translateX(0)
+    }
+
+    25% {
+        transform: translateX(5px)
+    }
+
+    50% {
+        transform: translateX(-5px)
+    }
+
+    75% {
+        transform: translateX(5px)
+    }
+
+    100% {
+        transform: translateX(0)
+    }
+}
+
+.form-content-deactivate * {
+    transition: 400ms;
+    opacity: 0 !important;
+}
+
+.form-content-deactivate {
+    border-radius: 1dvh;
+    background-color: rgb(0, 63, 158, 0.950);
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    transition: 400ms;
+    z-index: +1;
+}
+
+.form-image-deactivate {
+    transform: translate(-50%, 0);
+    background-color: rgba(255, 255, 255, 1);
+    transition: 400ms;
+    border-radius: 1dvh;
+}
+
+    .form-image-deactivate section img {
+        transition: 400ms;
+        opacity: 0;
+    }
+
+.form-image-deactivate-2 {
+    background-color: rgb(0, 63, 158, 0.950);
+    transition: 300ms ease-in;
+}
+
+    .form-image-deactivate-2 main img {
+        /* filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7472%) hue-rotate(206deg) brightness(114%) contrast(100%); */
+        transition: 400ms opacity !important;
+    }
+
+.form-email-sent-container {
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start !important;
+}
+
+.form-email-sent-container-active {
+    opacity: 1;
+}
+
+.form-content-active {
+    left: 0;
+    transform: translate(0, 0);
+}
+
+.email-icon {
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+}
+
+    .email-icon i {
+        color: rgb(0, 0, 0);
+    }
+
+    .email-icon main {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: rgb(0, 102, 255);
+        animation: rotate 5s linear infinite;
+    }
+
+        .email-icon main::after {
+            content: "";
+            height: 50%;
+            width: 200%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgb(255, 255, 255);
+        }
+
+    .email-icon aside {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        position: relative;
+        z-index: +1;
+        border-radius: 50%;
+    }
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.email-sent-text {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    justify-content: space-between;
+}
+
+    .email-sent-text h1 {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: lighter;
+    }
+
+    .email-sent-text h3 {
+        color: rgb(245, 245, 245);
+        margin-top: 1ch !important;
+        font-weight: 400;
+    }
+
+    .email-sent-text a {
+        color: white;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: 400;
+    }
+
+.email-code {
+    display: flex;
+    align-items: center;
+    justify-content: space-between !important;
+}
+
+    .email-code span {
+        position: relative;
+        border: 0.1dvh solid transparent;
+        border-radius: 1dvh;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgb(0, 63, 158);
+    }
+
+        .email-code span input {
+            width: 1ch;
+        }
+/* For Chrome, Safari, Edge, Opera */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* For Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.invincible-email-code-input {
+    position: absolute;
+    height: 100%;
+    width: 100% !important;
+    opacity: 0;
+}
+
+.email-form-row-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.email-form-row-btn-submit-btn {
+    background-color: rgb(255, 255, 255);
+    border-radius: 1dvh;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+    .email-form-row-btn-submit-btn * {
+        transition: 200ms;
+    }
+
+    .email-form-row-btn-submit-btn h1 {
+        border-color: rgb(0, 102, 255);
+        border-style: solid;
+        border-radius: 1dvh;
+        background-color: rgb(0, 102, 255);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 400;
+    }
+
+    .email-form-row-btn-submit-btn:hover {
+        background-size: 300% 100%;
+        background-position: 100% 0;
+        animation: moveGradient 2s linear infinite;
+        border-radius: 2dvh;
+        transform: translateY(-3%);
+    }
+
+@keyframes moveGradient {
+    0% {
+        background-position: 100% 0;
+    }
+
+    100% {
+        background-position: 0% 0;
+    }
+}
+
+.email-form-row-btn-submit-btn:hover h1 {
+    border-radius: 2dvh;
+    background-color: rgb(65, 141, 255);
+    border-color: rgb(65, 141, 255);
+    transform: scale(1);
+}
+
+.go-back-btn {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .go-back-btn h1 {
+        position: absolute;
+    }
+
+    .go-back-btn img {
+        cursor: pointer;
+        opacity: 1 !important;
+    }
+
+        .go-back-btn img:hover {
+            transform: translate(-5%, 0) scale(1.050);
+        }
+
+    .go-back-btn main span {
+        width: 10px;
+        height: 10px;
+        border-left: 2px solid black;
+        border-bottom: 2px solid black;
+        transform: rotate(45deg);
+    }
+
+.email-form-resend {
+    display: flex;
+    align-items: center;
+}
+
+    .email-form-resend h1 {
+        color: white;
+        margin-right: 1ch !important;
+        font-weight: 400;
+    }
+
+    .email-form-resend button {
+        background-color: rgb(54, 54, 54);
+        border: none;
+        border-radius: 1dvh;
+        color: white;
+        cursor: pointer;
+        font-weight: 400;
+        transition: 200ms;
+    }
+
+        .email-form-resend button i {
+            transition: 200ms;
+        }
+
+        .email-form-resend button:hover {
+            background-color: black;
+            transform: scale(1.020);
+        }
+
+            .email-form-resend button:hover i {
+                transform: rotate(90deg);
+            }
+
+        .email-form-resend button:active {
+            transform: scale(0.9);
+            background-color: rgb(54, 54, 54);
+        }
+
+.form-creating {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    transform: scale(0);
+}
+
+.form-creating-circle {
+    position: relative;
+    background-color: rgb(234, 225, 214);
+    border-radius: 50%;
+    border-color: rgb(234, 225, 214);
+    border-style: solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .form-creating-circle main {
+        background-color: rgb(0, 132, 255);
+        animation: rotate 3s infinite linear;
+    }
+
+        .form-creating-circle main span {
+            background-color: rgb(234, 225, 214);
+        }
+
+    .form-creating-circle aside {
+        position: absolute;
+        background-color: rgb(234, 225, 214);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .form-creating-circle img {
+        opacity: 1 !important;
+    }
+
+.form-creating-text {
+    position: relative;
+    /* background-color: rgb(255, 255, 255);
+    border-radius: 100dvh; */
+    display: flex;
+    flex-direction: column;
+}
+
+    .form-creating-text h1 {
+        color: transparent;
+        background: linear-gradient( to right, #ffffff 0%, #5f9fff 25%, #539eff 50%, #ffffff 100% );
+        background-size: 200% auto;
+        background-repeat: repeat;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: scrollGradient 2s linear infinite;
+    }
+
+    .form-creating-text h2 {
+        color: transparent;
+        background: linear-gradient( to right, #ffffff 0%, #e9e9e9 25%, #e7e7e7 50%, #ffffff 100% );
+        background-size: 200% auto;
+        background-repeat: repeat;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: scrollGradient 2s linear infinite;
+    }
+
+
+@keyframes scrollGradient {
+    0% {
+        background-position: 0% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.form-creating img {
+    opacity: 1 !important;
+}
+
+.form-creating-text img {
+    width: 100%;
+}
+
+.continue-email {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: none;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+    .continue-email button {
+        background-color: rgb(0, 0, 0, 0);
+        border: none;
+        outline: none;
+        border-radius: 1dvh;
+        cursor: pointer;
+        color: white;
+    }
+
+        .continue-email button:hover {
+            transform: scale(1.020);
+            background-color: rgb(0, 0, 0, 0.1);
+        }
+
+.signup-with-btns {
+    /* background-color: red; */
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.signup-with-btns-btn {
+    display: flex;
+    align-items: center;
+    border: 0.1dvh solid transparent;
+    border-radius: 1dvh;
+    cursor: pointer;
+    background-color: white;
+    transition: 200ms transform;
+}
+
+    .signup-with-btns-btn main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .signup-with-btns-btn aside {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .signup-with-btns-btn:hover {
+        transform: translate(0, -5%) scale(1.020);
+    }
+
+    .signup-with-btns-btn:active {
+        transform: translate(0, 0%) scale(0.980);
+        filter: brightness(80%);
+    }
+
+.form-content-input---phone {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+    .form-content-input---phone h1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .form-content-input---phone main {
+        /* background-color: red; */
+        display: flex;
+        align-items: center;
+        background-color: rgb(255, 255, 255);
+        border-radius: 1dvh;
+    }
+
+    .form-content-input---phone aside {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .form-content-input---phone main span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .form-content-input---phone input {
+        /* background-color: #f1f1f1; */
+        border-radius: 1dvh;
+        text-indent: 1ch;
+        border: 0.1dvh solid black;
+    }
+
+.form-content-phone-logo {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.form-content-input---phone h6 {
+    background-color: rgb(255, 0, 0);
+    border-radius: 1dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#errorMessage {
+    transform: scale(0);
+    opacity: 0;
+}
+
+.form-content-input---phone h6 span {
+    color: white;
+    overflow-y: scroll;
+}
+
+.form-content-input-date---phone {
+    display: flex;
+    flex-direction: column;
+}
+
+    .form-content-input-date---phone aside {
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(255, 255, 255);
+        border-radius: 1dvh;
+    }
+
+    .form-content-input-date---phone main {
+        display: flex;
+        align-items: center;
+        align-self: center;
+    }
+
+        .form-content-input-date---phone main h1 {
+            margin-left: 1ch !important;
+        }
+
+.form-content-input-date---phone-values {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+.form-content-input-date---phone-value {
+    position: relative;
+    display: flex;
+}
+
+    .form-content-input-date---phone-value span:nth-child(1) {
+        width: 50%;
+        background-color: rgb(0, 0, 0);
+        height: 100%;
+        border-bottom-left-radius: 0.5dvh;
+        border-top-left-radius: 0.5dvh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+    }
+
+    .form-content-input-date---phone-value span:nth-child(2) {
+        width: 50%;
+        background-color: rgb(240, 240, 240);
+        height: 100%;
+        border-bottom-right-radius: 0.5dvh;
+        border-top-right-radius: 0.5dvh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow-x: scroll;
+    }
+
+    .form-content-input-date---phone-value input {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+    }
+
+.form-content-input-date---phone h6 {
+    background-color: rgb(255, 0, 0);
+    display: flex;
+    align-items: center;
+    border-radius: 1dvh;
+    transform: scale(0);
+}
+
+    .form-content-input-date---phone h6 span {
+        margin-left: 1ch !important;
+        color: white;
+    }
+
+.sign-up-btn-phone {
+    border-radius: 1dvh;
+    border-color: white;
+    border-style: solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: white;
+}
+
+    .sign-up-btn-phone h1 {
+        position: relative;
+        background-color: rgb(0, 63, 158);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1dvh;
+        transition: 200ms;
+    }
+
+        .sign-up-btn-phone h1 aside {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            height: 100%;
+            /* background-color: red; */
+        }
+
+            .sign-up-btn-phone h1 aside span {
+                background-color: rgb(255, 255, 255);
+                border-radius: 50%;
+            }
+
+.sign-up-btn-phone-dec-left {
+    left: 0;
+}
+
+.sign-up-btn-phone-dec-right {
+    right: 0;
+}
+
+.sign-up-btn-phone:hover h1 {
+    transform: scale(0.950);
+    background-color: rgb(0, 63, 158, 0.8);
+}
+
+.phone-or-section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+    .phone-or-section aside {
+        position: absolute;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-evenly;
+    }
+
+        .phone-or-section aside span {
+            display: flex;
+            background-color: rgb(255, 255, 255);
+            border-radius: 50%;
+            transform: translate(0, -50%);
+        }
+
+        .phone-or-section aside:nth-child(1) {
+            left: 0;
+        }
+
+        .phone-or-section aside:nth-child(2) {
+            right: 0;
+        }
+
+    .phone-or-section h1 {
+        color: white;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+.continue-with-btns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+    .continue-with-btns button {
+        display: flex;
+        align-items: center;
+        background-color: rgb(255, 255, 255);
+        outline: none;
+        border: none;
+        border-radius: 1dvh;
+        overflow: hidden;
+        justify-content: space-between;
+    }
+
+        .continue-with-btns button span {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+            .continue-with-btns button span img {
+                max-height: 100%;
+            }
+
+.continue-with-btns-btn {
+    transition: 200ms transform;
+}
+
+    .continue-with-btns-btn main {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+        .continue-with-btns-btn main img {
+            max-height: 100%;
+        }
+
+    .continue-with-btns-btn:hover {
+        transform: translate(0, 3%) scale(1.020);
+        filter: brightness(90%);
+    }
+
+.already-account-container---phone {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .already-account-container---phone h2 {
+        background-color: white;
+        border-radius: 1dvh;
+        color: rgb(0, 63, 158);
+    }
+
+.wrapper {
+    display: flex;
+    height: fit-content;
+    color: white;
+    height: 100%;
+    align-items: center;
+}
+
+.continue-email-box---phone {
+    position: absolute;
+    right: 0;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* design button */
+    background-color: rgb(0, 0, 0, 0.1);
+    border-radius: 1dvh;
+    color: white;
+}
+
+    .continue-email-box---phone span {
+        margin-right: 1ch !important;
+    }
+
+.wrapper-continue {
+    position: absolute;
+    left: 0;
+}
+
+.form-loader--phone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.phone-form-loader-circle {
+    position: relative;
+    background-color: rgb(234, 225, 214);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+    .phone-form-loader-circle main {
+        overflow: hidden;
+        background-color: rgb(234, 225, 214);
+        z-index: +1;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .phone-form-loader-circle aside {
+        position: absolute;
+        overflow: hidden;
+        /* background-color: rgb(234, 225, 214); */
+        background-color: rgb(0, 132, 255);
+        border-radius: 50%;
+        animation: rotate 4s infinite linear;
+    }
+
+        .phone-form-loader-circle aside span {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            /* background-color: rgb(0, 132, 255); */
+            background-color: rgb(234, 225, 214);
+        }
+
+.form-loader--phone-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+    .form-loader--phone-text h1 {
+        color: transparent;
+        background: linear-gradient( to right, #ffffff 0%, rgb(0, 162, 255) 25%, rgb(0, 162, 255) 50%, #ffffff 100% );
+        background-size: 200% auto;
+        background-repeat: repeat;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: scrollGradient 2s linear infinite;
+    }
+
+    .form-loader--phone-text h2 {
+        color: transparent;
+        background: linear-gradient( to right, #ffffff 0%, #9c9c9c 25%, #c5c5c5 50%, #ffffff 100% );
+        background-size: 200% auto;
+        background-repeat: repeat;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: scrollGradient 2s linear infinite;
+    }
+
+.top-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.phone-form-contents-show-up {
+    animation: showUpPhoneFormContents 400ms;
+}
+
+.phone-form-contents-show-down {
+    animation: showDownPhoneFormContents 400ms;
+}
+
+.phone-form-loading-show-down {
+    animation: showDownPhoneFormLoading 400ms;
+}
+
+.phone-form-loading-show-up {
+    animation: showUpPhoneFormLoading 400ms;
+}
+
+@keyframes showUpPhoneFormContents {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes showDownPhoneFormContents {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+@keyframes showUpPhoneFormLoading {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes showDownPhoneFormLoading {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+.phone-email-sent-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.phone-email-sent-form-circle {
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+    .phone-email-sent-form-circle main {
+        position: absolute;
+        background-color: rgb(233, 233, 233);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: +1;
+        color: rgb(0, 0, 0);
+    }
+
+    .phone-email-sent-form-circle aside {
+        position: relative;
+        background-color: rgb(0, 162, 255);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: rotate 5s infinite linear;
+    }
+
+        .phone-email-sent-form-circle aside span {
+            position: absolute;
+            background-color: rgb(255, 255, 255);
+        }
+
+.phone-email-sent-form-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    justify-content: center;
+}
+
+    .phone-email-sent-form-text * {
+        text-align: center;
+        overflow-y: scroll;
+    }
+
+    .phone-email-sent-form-text a {
+        color: white;
+        overflow-y: scroll;
+        text-align: center;
+        font-weight: 700;
+    }
+
+    .phone-email-sent-form-text h3 {
+        font-weight: 400;
+    }
+
+.phone-input-code-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.phone-input-code-container-code {
+    background-color: green;
+    border-radius: 1dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+    .phone-input-code-container-code input {
+        height: 100%;
+        width: 100%;
+        text-align: center;
+    }
+
+.phone-input-code-container-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.phone-input-code-container-row-2 {
+}
+
+.email-sent-form---phone-showUp {
+    animation: email-sent-form---phone-showUp 400ms;
+}
+
+.email-sent-form---phone-showDown {
+    animation: email-sent-form---phone-showDown 400ms;
+}
+
+@keyframes email-sent-form---phone-showUp {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes email-sent-form---phone-showDown {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+.phone-email-form-submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .phone-email-form-submit-btn button {
+        background-color: rgb(44, 44, 44, 0.8);
+        outline: none;
+        border: none;
+        border-style: solid;
+        border-color: rgb(255, 255, 255);
+        border-radius: 1dvh;
+        color: white;
+        font-weight: 600;
+        transition: 200ms;
+    }
+
+        .phone-email-form-submit-btn button:hover {
+            transform: scale(0.970);
+            background-color: rgb(44, 44, 44, 0.950);
+            border-radius: 2dvh;
+        }
+
+.phone-go-back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.phone-resend-code {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+    .phone-resend-code main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .phone-resend-code button {
+        background-color: rgb(34, 34, 34);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1dvh;
+        border: none;
+        color: white !important;
+        user-select: none;
+    }
+
+        .phone-resend-code button:active {
+            transform: scale(0.9);
+            background-color: rgb(34, 34, 34, 0.7);
+        }
+
+</style>
+</head>
+<body class="page" id="page" cz-shortcut-listen="true" style="height: 1132px;">
+    
+        
+
+  
+   
+<section class="form" ds="height: .background-image_H / 1.050; width: .background-image_W - (.background-image_H - (.background-image_H / 1.050));" style="height: 1078.1px; width: 1288.1px;">
+    <if-block device="pc || tab || lap || tv">
+
+    
+<section class="form-content form-content-active" ds="width: .form_W / 2; height: .form_H;" style="width: 644px; height: 1078px;">
+
+
+
+
+    <section class="form-content-heading" ds="width: .form-content_W / 1.050;
+     height: .form-content_H / 10;
+     marginT: (.form-content_W - (.form-content_W / 1.050)) / 2 !i;" style="width: 613.333px; height: 107.8px; margin-top: 15.3333px !important;">
+        <h1 ds="fs: (.form-content-heading_H + .form-content-heading_W) / 20;" style="font-size: 36.05px;">Create an account
+   
+
+        </h1>
+    </section>
+  
+    <section class="form-content-heading--input" id="name" ds="height: (.form-content_H - .form-content-heading_H) / 9; 
+    width: .form-content_W / 1.1;
+    marginT: .form-content-heading--input_H / 5 !i;" style="height: 107.778px; width: 585.455px; margin-top: 21.6px !important;">
+       <main ds="height: $t$.form-content-heading--input_H / 2.5; width: $t$.form-content-heading--input_W;
+       border-width: ($t$.form-content-heading--input_H + $t$.form-content-heading--input_W) / 150; " style="height: 43.2px; width: 585px; border-width: 4.62px;">
+           <span ds="height: $t$.form-content-heading--input@main_H - (($t$.form-content-heading--input_H + $t$.form-content-heading--input_W) / 80); width: $t$.form-content-heading--input_W / 5;
+           fs: ($t$.form-content-heading--input@main_H + $t$.form-content-heading--input@main_W) / 40;" style="height: 42.3375px; width: 117px; font-size: 16.1px;">
+        <i style="margin-right: 1ch !important;" class="fa-solid fa-id-card-clip"></i>
+        <h6>Name</h6>
+        </span> 
+           <input host="name-port" type="text" ds="height:  $t$.form-content-heading--input@main_H - (($t$.form-content-heading--input_H + $t$.form-content-heading--input_W) / 80);
+            width: $t$.form-content-heading--input_W - (($t$.form-content-heading--input_W / 5) + (($t$.form-content-heading--input_H + $t$.form-content-heading--input_W) / 70))" style="height: 42.3375px; width: 458.1px;">
+        </main>
+        <h1 id="errorMessage" ds="height: ($t$.form-content-heading--input_H / 2) - (($t$.form-content-heading--input_H + $t$.form-content-heading--input_W) / 75);
+         width: $t$.form-content-heading--input_W;
+         fs: ($t$.form-content-heading--input@h1_H + $t$.form-content-heading--input@h1_W) / 55;" style="height: 44.76px; width: 585px; font-size: 10.3273px;">
+         <span id="errorMessageText"></span></h1>
+        </section>
+    
+    <section class="form-content-heading--input" id="email" ds="height: (.form-content_H - .form-content-heading_H) / 9; 
+    width: .form-content_W / 1.1;
+    marginT: .form-content-heading--input_H / 5 !i;" style="height: 107.778px; width: 585.455px; margin-top: 21.6px !important;">
+       <main ds="height: $t$.form-content-heading--input_H / 2.5; width: $t$.form-content-heading--input_W;
+       border-width: ($t$.form-content-heading--input_H + $t$.form-content-heading--input_W) / 150; " style="height: 43.2px; width: 585px; border-width: 4.62px;">
+           <span ds="height: $t$.form-content-heading--input@main_H - (($t$.form-content-heading--input_H + $t$.form-content-heading--input_W) / 80); width: $t$.form-content-heading--input_W / 5;
+           fs: ($t$.form-content-heading--input@main_H + $t$.form-content-heading--input@main_W) / 40;" style="height: 42.3375px; width: 117px; font-size: 16.1px;">
+        <i class="fa-solid fa-envelope" style="margin-right: 1ch !important;"></i>
+    <h6>Email</h6></span>
+                            <input host="email-port" type="text" ds="height:  $t$.form-content-heading--input@main_H - (($t$.form-content-heading--input_H + $t$.form-content-heading--input_W) / 80);
+                    width: $t$.form-content-heading--input_W - (($t$.form-content-heading--input_W / 5) + (($t$.form-content-heading--input_H + $t$.form-content-heading--input_W) / 70))" style="height: 42.3375px; width: 458.1px;">
+        </main>
+        <h1 id="errorMessage" ds="height: ($t$.form-content-heading--input_H / 2) - (($t$.form-content-heading--input_H + $t$.form-content-heading--input_W) / 75);
+         width: $t$.form-content-heading--input_W;
+         fs: ($t$.form-content-heading--input@h1_H + $t$.form-content-heading--input@h1_W) / 55;" style="height: 44.76px; width: 585px; font-size: 10.3273px;">
+         <span id="errorMessageText"> </span></h1>
+        </section>
+        <section class="form-content-heading--input" id="username" ds="height: (.form-content_H - .form-content-heading_H) / 9; 
+    width: .form-content_W / 1.1;
+    marginT: .form-content-heading--input_H / 5 !i;" style="height: 107.778px; width: 585.455px; margin-top: 21.6px !important;">
+       <main ds="height: $t$.form-content-heading--input_H / 2.5; width: $t$.form-content-heading--input_W;
+       border-width: ($t$.form-content-heading--input_H + $t$.form-content-heading--input_W) / 150; " style="height: 43.2px; width: 585px; border-width: 4.62px;">
+           <span ds="height: $t$.form-content-heading--input@main_H - (($t$.form-content-heading--input_H + $t$.form-content-heading--input_W) / 80); width: $t$.form-content-heading--input_W / 5;
+           fs: ($t$.form-content-heading--input@main_H + $t$.form-content-heading--input@main_W) / 40;" style="height: 42.3375px; width: 117px; font-size: 16.1px;">
+         <i style="margin-right: 1ch !important;" class="fa-solid fa-signature"></i>
+        <h6>Username</h6></span>
+                    <input host="username-port" type="text" ds="height:  $t$.form-content-heading--input@main_H - (($t$.form-content-heading--input_H + $t$.form-content-heading--input_W) / 80);
+            width: $t$.form-content-heading--input_W - (($t$.form-content-heading--input_W / 5) + (($t$.form-content-heading--input_H + $t$.form-content-heading--input_W) / 70))" style="height: 42.3375px; width: 458.1px;">
+        </main>
+        <h1 id="errorMessage" ds="height: ($t$.form-content-heading--input_H / 2) - (($t$.form-content-heading--input_H + $t$.form-content-heading--input_W) / 75);
+         width: $t$.form-content-heading--input_W;
+         fs: ($t$.form-content-heading--input@h1_H + $t$.form-content-heading--input@h1_W) / 55;" style="height: 44.76px; width: 585px; font-size: 10.3273px;">
+         <span id="errorMessageText">  </span></h1>
+        </section>
+        <section class="form-content-heading--input" id="password" ds="height: (.form-content_H - .form-content-heading_H) / 9; 
+    width: .form-content_W / 1.1;
+    marginT: .form-content-heading--input_H / 5 !i;" style="height: 107.778px; width: 585.455px; margin-top: 21.6px !important;">
+       <main ds="height: $t$.form-content-heading--input_H / 2.5; width: $t$.form-content-heading--input_W;
+       border-width: ($t$.form-content-heading--input_H + $t$.form-content-heading--input_W) / 150; " style="height: 43.2px; width: 585px; border-width: 4.62px;">
+           <span ds="height: $t$.form-content-heading--input@main_H - (($t$.form-content-heading--input_H + $t$.form-content-heading--input_W) / 80); width: $t$.form-content-heading--input_W / 5;
+           fs: ($t$.form-content-heading--input@main_H + $t$.form-content-heading--input@main_W) / 40;" style="height: 42.3375px; width: 117px; font-size: 16.1px;">
+        <i class="fa-solid fa-key" style="margin-right: 1ch !important;"></i>
+    <h6>Password</h6></span>
+                    <input host="password-port" type="text" ds="height:  $t$.form-content-heading--input@main_H - (($t$.form-content-heading--input_H + $t$.form-content-heading--input_W) / 80);
+            width: $t$.form-content-heading--input_W - (($t$.form-content-heading--input_W / 5) + (($t$.form-content-heading--input_H + $t$.form-content-heading--input_W) / 70))" style="height: 42.3375px; width: 458.1px;">
+        </main>
+        <h1 id="errorMessage" ds="height: ($t$.form-content-heading--input_H / 2) - (($t$.form-content-heading--input_H + $t$.form-content-heading--input_W) / 75);
+         width: $t$.form-content-heading--input_W;
+         fs: ($t$.form-content-heading--input@h1_H + $t$.form-content-heading--input@h1_W) / 55;" style="height: 44.76px; width: 585px; font-size: 10.3273px;">
+         <span id="errorMessageText"> </span></h1>
+        </section>
+<section class="form-content-date-main-container" id="date" ds="
+height: (.form-content_H - .form-content-heading_H) / 4.6;
+marginT: .form-content-date-main-container_H / 20 !i;
+marginB: .form-content-date-main-container_H / 20 !i;
+" style="height: 210.87px; margin-top: 10.55px !important; margin-bottom: 10.55px !important;">
+
+
+    <section class="form-content-date" ds="height: (.form-content_H - .form-content-heading_H) / 7;
+    width: .form-content_W / 1.1;
+         border-width: (.form-content-heading--input_H + .form-content-heading--input_W) / 150" style="height: 138.571px; width: 585.455px; border-width: 4.62px;">
+            <section class="form-content-date-container" ds="height: .form-content-date_H - ((.form-content-heading--input_H + .form-content-heading--input_W) / 75);
+            width: .form-content-date_W - ((.form-content-heading--input_H + .form-content-heading--input_W) / 75);" style="height: 137.76px; width: 583.76px;">
+                <section class="form-content-date-container-key" ds="height: .form-content-date-container_H;
+                width: ((.form-content-date-container_W / 4) - ((.form-content-heading--input_H + .form-content-heading--input_W) / 75));
+                marginR: ((.form-content-heading--input_H + .form-content-heading--input_W) / 75) !i;" style="height: 138px; width: 136.76px; margin-right: 9.24px !important;">
+                    <i ds="fs: (.form-content-date-container-key_H + .form-content-date-container-key_W) / 10;" style="margin-bottom: 0.3ch !important; font-size: 27.5px;" class="fa-solid fa-calendar"></i>
+                    <span ds="fs: (.form-content-date-container-key_H + .form-content-date-container-key_W) / 15;" style="font-size: 18.3333px;">Date of birth</span>
+                </section>
+                <section class="form-content-date-container-value" id="day-data" data-day="" ds="
+                width: .form-content-date-container_W / 4.1;
+                height: .form-content-date-container_H;" style="width: 142.439px; height: 138px;">
+                    <h1 ds="height: $t$.form-content-date-container-value_H / 3;
+                    width: $t$.form-content-date-container-value_W;
+                    fs: ( $t$.form-content-date-container-value_H +  $t$.form-content-date-container-value_W) / 15;" style="height: 46px; width: 142px; font-size: 18.6667px;">Day</h1>
+                  
+                    <span ds="
+                    width: $t$.form-content-date-container-value_W;
+                    height: $t$.form-content-date-container-value_H / 3;" style="width: 142px; height: 46px;">
+                        <strong ds="fs: ($t$.form-content-date-container-value@span_W + $t$.form-content-date-container-value@span_H) / 13;" style="font-size: 14.5385px;">
+                                    
+                                </strong>
+                    </span>
+
+                            <input oninput="
+simulateInputs(this , [[this.closest('section').querySelector('span strong') , 'data-day' , this.closest('.form-content-date-container-value')] , ['#day-data--phone #phone-date-value' , 'data-day'] , 
+['#day-data--phone  #phone-date-value' , 'value' , ' #day-data--phone input']])" type="text" ds="
+                    width: $t$.form-content-date-container-value_W;
+                    height: $t$.form-content-date-container-value_H; bottom: $t$.form-content-date-container-value@h6_H;" style="width: 142px; height: 138px; bottom: 0px;">
+                      <!-- <input oninput="simulateInput(this , this.closest('section').querySelector('span strong') , [[this.closest('.form-content-date-container-value') , 'data-day']])" type="text" ds="
+                    width: $t$.form-content-date-container-value_W;
+                    height: $t$.form-content-date-container-value_H; bottom: $t$.form-content-date-container-value@h6_H;"> -->
+                </section>
+              
+                <section class="form-content-date-container-value" id="month-data" data-month="" ds="
+                width: .form-content-date-container_W / 4.1;
+                height: .form-content-date-container_H;" style="width: 142.439px; height: 138px;">
+                    <h1 ds="height: $t$.form-content-date-container-value_H / 3;
+                    width: $t$.form-content-date-container-value_W;
+                    fs: ( $t$.form-content-date-container-value_H +  $t$.form-content-date-container-value_W) / 15;" style="height: 46px; width: 142px; font-size: 18.6667px;">Month</h1>
+                  
+                    <span ds="
+                    width: $t$.form-content-date-container-value_W;
+                    height: $t$.form-content-date-container-value_H / 3;" style="width: 142px; height: 46px;">
+                        <strong ds="fs: ($t$.form-content-date-container-value@span_W + $t$.form-content-date-container-value@span_H) / 13;" style="font-size: 14.5385px;">
+                                    </strong>
+                    </span>
+
+                            <input oninput="
+simulateInputs(this , [[this.closest('section').querySelector('span strong') , 'data-month' , this.closest('.form-content-date-container-value')] , ['#month-data--phone #phone-date-value' , 'data-month'] , 
+['.form-content #month-data span strong' , 'value' , '.form-content #month-data--phone input']])" type="text" ds="
+                    width: $t$.form-content-date-container-value_W;
+                    height: $t$.form-content-date-container-value_H; bottom: $t$.form-content-date-container-value@h6_H;" style="width: 142px; height: 138px; bottom: 0px;">
+                </section>
+              
+                <section class="form-content-date-container-value" id="year-data" data-year="" ds="
+                width: .form-content-date-container_W / 4.1;
+                height: .form-content-date-container_H;" style="width: 142.439px; height: 138px;">
+                    <h1 ds="height: $t$.form-content-date-container-value_H / 3;
+                    width: $t$.form-content-date-container-value_W;
+                    fs: ( $t$.form-content-date-container-value_H +  $t$.form-content-date-container-value_W) / 15;" style="height: 46px; width: 142px; font-size: 18.6667px;">Year</h1>
+                  
+                    <span ds="
+                    width: $t$.form-content-date-container-value_W;
+                    height: $t$.form-content-date-container-value_H / 3;" style="width: 142px; height: 46px;">
+                        <strong ds="fs: ($t$.form-content-date-container-value@span_W + $t$.form-content-date-container-value@span_H) / 13;" style="font-size: 14.5385px;">
+                                    
+                                </strong>
+                    </span>
+
+                            <input oninput="
+simulateInputs(this , [[this.closest('section').querySelector('span strong') , 'data-year' , this.closest('.form-content-date-container-value')] , ['#year-data--phone #phone-date-value' , 'data-year']])" type="text" ds="
+                    width: $t$.form-content-date-container-value_W;
+                    height: $t$.form-content-date-container-value_H; bottom: $t$.form-content-date-container-value@h6_H;" style="width: 142px; height: 138px; bottom: 0px;">
+                </section>
+              
+               
+            </section>
+        </section>
+        <section class="form-content-date-main-container-error-message" id="errorMessage" ds="
+        height: (.form-content-date-main-container_H - .form-content-date_H) / 1.4;" style="height: 45.7143px;">
+<span id="errorMessageText" ds="fs: (.form-content-date-main-container-error-message_H + .form-content-date-main-container-error-message_W) / 60;" style="font-size: 10.65px;"> </span>
+        </section>
+  </section>
+ 
+  <section class="form-content-btn-row" ds="
+  height: (.form-content_H - (.form-content-heading_H + (.form-content-heading--input_H * 4) + .form-content-date_H)) / 5;
+  width: .form-content_W / 1.1;" style="height: 78.2px; width: 585.455px;">
+  
+    <section class="form-content-create-btn" onclick="createAccountLoading()" ds="
+    border-width: (.form-content-btn-row_H + .form-content-btn-row_W) / 150;
+    width: .form-content-btn-row_W / 3;
+    height: .form-content-btn-row_H / 1.2;" style="border-width: 4.42px; width: 195px; height: 65px;">
+        <main ds="height: (.form-content-create-btn_H) - ((.form-content-btn-row_H + .form-content-btn-row_W) / 75);" style="height: 64.16px;">
+            <i ds="fs: (.form-content-create-btn_H + .form-content-create-btn_W) / 15;" class="fa-solid fa-door-open" style="font-size: 18.4px;"></i>
+             <h1 style="margin-left: 1ch !important; font-size: 18.4px;" ds="fs: (.form-content-create-btn_H + .form-content-create-btn_W) / 15;">Create account</h1></main>
+        
+    </section>
+    <section class="already-have-account" ds="width: .form-content-btn-row_W - (.form-content-create-btn_W); 
+  height: .form-content-btn-row_H / 1.1;" style="width: 382px; height: 70.9091px;">
+    <a href="" ds="fs: (.already-have-account_H + .already-have-account_W) / 30;" style="font-size: 15.1px;">Already have an account? 
+        <span>login now </span></a>
+  </section>
+  </section>
+
+
+                <section class="signup-with-btns" ds="width: .already-have-account_W / 1.1;
+  height: (.form-content_H - (.form-content-heading_H + (.form-content-heading--input_H * 4) + .form-content-date_H + .form-content-btn-row_H)) / 3;
+  marginL: (.form-content_W - (.form-content_W / 1.1)) !i;" style="width: 347.273px; height: 104.333px; margin-left: 58.5455px !important;">
+
+<button onclick="continueWithGoogle()" class="signup-with-btns-btn" ds="width: .signup-with-btns_W / 2.1;
+height: .signup-with-btns_H / 1.5;" style="width: 165.238px; height: 69.3333px;">
+    <main ds="width: $t$.signup-with-btns-btn_W / 5;
+    height: $t$.signup-with-btns-btn_H;" style="width: 33px; height: 69px;">
+        <img ds="width: ($t$.signup-with-btns-btn_W + $t$.signup-with-btns-btn_H) / 6;
+        max-height: $t$.signup-with-btns-btn@main_H;" src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="" srcset="" style="width: 39px; max-height: 69px;">
+    </main>
+    <aside ds="width: $t$.signup-with-btns-btn_W - $t$.signup-with-btns-btn@main_W;
+    height: $t$.signup-with-btns-btn@main_H;" style="width: 132px; height: 69px;">
+        <img ds="width: $t$.signup-with-btns-btn@aside_W / 1.1;
+        max-height: $t$.signup-with-btns-btn@aside_H;" src="https://i.postimg.cc/4dHycp2G/image.png" alt="" srcset="" style="width: 120px; max-height: 69px;">
+    </aside>
+</button>
+
+<button onclick="continueWithFacebook()" class="signup-with-btns-btn" ds="width: .signup-with-btns_W / 2.1;
+height: .signup-with-btns_H / 1.5;" style="width: 165.238px; height: 69.3333px;">
+    <main ds="width: $t$.signup-with-btns-btn_W / 5;
+    height: $t$.signup-with-btns-btn_H;" style="width: 33px; height: 69px;">
+        <img ds="width: ($t$.signup-with-btns-btn_W + $t$.signup-with-btns-btn_H) / 6;
+        max-height: $t$.signup-with-btns-btn@main_H;" src="https://static.vecteezy.com/system/resources/previews/018/930/698/non_2x/facebook-logo-facebook-icon-transparent-free-png.png" alt="" srcset="" style="width: 39px; max-height: 69px;">
+    </main>
+    <aside ds="width: $t$.signup-with-btns-btn_W - $t$.signup-with-btns-btn@main_W;
+    height: $t$.signup-with-btns-btn@main_H;" style="width: 132px; height: 69px;">
+        <img ds="width: $t$.signup-with-btns-btn@aside_W / 1.1;
+        max-height: $t$.signup-with-btns-btn@aside_H;" src="https://i.postimg.cc/4d3cKKVb/image.png" alt="" srcset="" style="width: 120px; max-height: 69px;">
+    </aside>
+</button>
+
+  </section>
+  <section onclick="continuteForm()" class="continue-email" ds="
+  bottom: (.form-content_W - (.form-content_W / 1.1)) / 3.5;
+  right: (.form-content_W - (.form-content_W / 1.1)) / 3.5;
+  width: .already-have-account_W / 1.1;
+  height: (.form-content_H - (.form-content-heading_H + (.form-content-heading--input_H * 4) + .form-content-date_H + .form-content-btn-row_H)) / 5;
+  marginL: (.form-content_W - (.form-content_W / 1.1)) !i;" style="bottom: 16.7273px; right: 16.7273px; width: 347.273px; height: 62.6px; margin-left: 58.5455px !important;">
+  <button ds="height: .continue-email_H / 1.1;
+  width: .continue-email_W / 3;
+  fs: (.continue-email_H + .continue-email_W) / 40;" style="height: 0px; width: 0px; font-size: 0px;">
+    Continue to email box
+    <i class="fa-solid fa-circle-right"></i>
+  </button>
+  </section>
+
+
+</section>
+<section class="form-image " continue="false" ds="height: .form_H; width: .form_W / 2;" style="height: 1078px; width: 644px;">
+    <main ds="width: .form-image_W; height: .form-image_H / 5;" style="width: 644px; height: 215.6px;">
+        <img ds="width: $t$.form-image@main_W / 2.5; max-height: $t$.form-image@main_H;" src="https://i.postimg.cc/3wRXXvyy/blue-upscalemedia-transformed.png" alt="" srcset="" style="width: 257.6px; max-height: 216px;">
+    </main>
+    <target-block element=".form-content" has="form-content-active" data-active="true">
+
+        <section ds="height: .form-image_H - $t$.form-image@main_H; width: .form-image_W;" style="height: 862px; width: 644px;">
+            <img ds="width: $t$.form-image@section_W / 1.5; max-height: $t$.form-image@section_H;" src="https://i.postimg.cc/tJc11tC7/image.png" alt="" srcset="" style="width: 429.333px; max-height: 862px;">
+        </section>
+    </target-block>
+    
+    <target-block element=".form-content" has="form-content-deactivate">
+
+        <section class="form-email-sent-container " ds="width: .form-content_W;
+height: .form-content_H - ($t$.form-image@main_H);">
+    
+<section class="email-icon" ds="height: (.form-email-sent-container_H + .form-email-sent-container_W) / 13; 
+width: (.form-email-sent-container_H + .form-email-sent-container_W) / 13;">
+    <main>
+
+    </main>
+    <aside ds="height: .email-icon_H / 1.2; width: .email-icon_W / 1.2;">
+
+        <i ds="fs: (.email-icon@aside_H + .email-icon@aside_W) / 4;" class="fa-solid fa-envelope-circle-check"></i>
+    </aside>
+    
+</section>
+<section class="email-sent-text" ds="width: .form-email-sent-container_W / 1.1;
+height: (.form-email-sent-container_H - (.email-icon_H)) / 4;
+paddingT: .email-sent-text_H / 6 !i;">
+    <h1 ds="fs: (.email-sent-text_H + .email-sent-text_W) / 20;">We have sent a code to</h1>
+    <a href="https://gmail.com/" target="_blank" ds="fs: (.email-sent-text_H + .email-sent-text_W) / 25;"></a>
+    <h3 ds="fs: (.email-sent-text_H + .email-sent-text_W) / 50;"> Please check your email and enter the code below</h3>
+</section>
+
+<section id="email-code" class="email-code" ds="height: (.form-email-sent-container_H - (.email-icon_H + .email-sent-text_H)) / 3;
+width: .form-email-sent-container_W / 1.1;">
+<span ds="height: .email-code_H / 1.5; 
+width: .email-code_W / 7;">
+<strong ds="fs: (.email-code_H + .email-code_W) / 25;"></strong>
+<input connect="email-code-1" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="1" class="invincible-email-code-input" oninput="simulateInput(this , this.closest('span').querySelector('strong'))">
+</span>
+<span ds="height: .email-code_H / 1.5; 
+width: .email-code_W / 7;">
+<strong ds="fs: (.email-code_H + .email-code_W) / 25;"></strong>
+<input connect="email-code-2" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="1" class="invincible-email-code-input" oninput="simulateInput(this , this.closest('span').querySelector('strong'))">
+</span>
+<span ds="height: .email-code_H / 1.5; 
+width: .email-code_W / 7;">
+<strong ds="fs: (.email-code_H + .email-code_W) / 25;"></strong>
+<input connect="email-code-3" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="1" class="invincible-email-code-input" oninput="simulateInput(this , this.closest('span').querySelector('strong'))">
+</span>
+<span ds="height: .email-code_H / 1.5; 
+width: .email-code_W / 7;">
+<strong ds="fs: (.email-code_H + .email-code_W) / 25;"></strong>
+<input connect="email-code-4" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="1" class="invincible-email-code-input" oninput="simulateInput(this , this.closest('span').querySelector('strong'))">
+</span>
+<span ds="height: .email-code_H / 1.5; 
+width: .email-code_W / 7;">
+<strong ds="fs: (.email-code_H + .email-code_W) / 25;"></strong>
+<input connect="email-code-5" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="1" class="invincible-email-code-input" oninput="simulateInput(this , this.closest('span').querySelector('strong'))">
+</span>
+<span ds="height: .email-code_H / 1.5; 
+width: .email-code_W / 7;">
+<strong ds="fs: (.email-code_H + .email-code_W) / 25;"></strong>
+<input connect="email-code-6" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="1" class="invincible-email-code-input" oninput="simulateInput(this , this.closest('span').querySelector('strong'))">
+</span>
+<!-- <span ds="height: .email-code_H / 1.5; 
+width: .email-code_W / 7;">
+<input ds="fs: (.email-code_H + .email-code_W) / 25;" connect="email-code-input-2" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="1">
+<input type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="1" 
+class="invincible-email-code-input" host="email-code-input-2">
+</span>
+<span ds="height: .email-code_H / 1.5; 
+width: .email-code_W / 7;">
+<input ds="fs: (.email-code_H + .email-code_W) / 25;" connect="email-code-input-3" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="1">
+<input type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="1" 
+class="invincible-email-code-input" host="email-code-input-3">
+</span>
+<span ds="height: .email-code_H / 1.5; 
+width: .email-code_W / 7;">
+<input ds="fs: (.email-code_H + .email-code_W) / 25;" connect="email-code-input-4" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="1">
+<input type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="1" 
+class="invincible-email-code-input" host="email-code-input-4">
+</span>
+<span ds="height: .email-code_H / 1.5; 
+width: .email-code_W / 7;">
+<input ds="fs: (.email-code_H + .email-code_W) / 25;" connect="email-code-input-5" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="1">
+<input type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="1" 
+class="invincible-email-code-input" host="email-code-input-5">
+</span>
+<span ds="height: .email-code_H / 1.5; 
+width: .email-code_W / 7;">
+<input ds="fs: (.email-code_H + .email-code_W) / 25;" connect="email-code-input-6" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="1">
+<input type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="1" 
+class="invincible-email-code-input" host="email-code-input-6">
+</span> -->
+</section>
+<section class="email-form-row-btn" ds="width: .email-code_W;
+ height: (.form-email-sent-container_H - (.email-icon_H + .email-sent-text_H + .email-code_H)) / 2;">
+
+ <section onclick="backToForm()" class="go-back-btn" ds="width: .email-form-row-btn_W / 2; height: .email-form-row-btn_H / 1.1;">
+    <img src="https://i.postimg.cc/PryYmjzv/image.png" ds="width: .go-back-btn_W / 2;" alt="">
+     
+ </section>
+
+
+<section class="email-form-row-btn-submit-btn" onclick="getEmailCodeByUser()" ds="height: .email-form-row-btn_H / 2;
+width: .email-form-row-btn_W / 2;">
+    <h1 ds="border-width: (.email-form-row-btn-submit-btn_H + .email-form-row-btn-submit-btn_W) / 30;
+    height: (.email-form-row-btn-submit-btn_H - ((.email-form-row-btn-submit-btn_H + .email-form-row-btn-submit-btn_W) / 30)) / 2;
+    width: .email-form-row-btn-submit-btn_W - (((.email-form-row-btn-submit-btn_H - ((.email-form-row-btn-submit-btn_H + .email-form-row-btn-submit-btn_W) / 30)) / 2) * 1.6);
+    fs: (.email-form-row-btn-submit-btn_H + .email-form-row-btn-submit-btn_W) / 25;">Submit</h1>
+</section>
+
+</section>
+
+<section class="email-form-resend" ds="height: (.form-email-sent-container_H - (.email-icon_H + .email-sent-text_H + .email-code_H + .email-form-row-btn-submit-btn_H)) / 2;
+width: .form-email-sent-container_W / 1.1;">
+    <h1 ds="fs: (.email-form-resend_H + .email-form-resend_W) / 50;">Didn't recived an email?</h1>
+
+    <button onclick="syncResend()" ds="height: .email-form-resend@h1_H * 2;
+    width: (.email-form-resend_W / 2.5) - .email-form-resend@h1_W;"> 
+    <i ds="fs: (.email-form-resend@button_H + .email-form-resend@button_W) / 10;" class="fa-solid fa-rotate"></i>
+    <span ds="fs: (.email-form-resend@button_H + .email-form-resend@button_W) / 10;"> Resend</span></button>
+</section>
+
+
+</section>
+<section class="form-creating" ds="height: .form-content_H - ($t$.form-image@main_H);
+width: .form-content_W;">
+
+<section class="form-creating-circle" ds="
+height: (.form-creating_H + .form-creating_W) / 6;
+width: (.form-creating_H + .form-creating_W) / 6;
+border-width: (.form-creating_H + .form-creating_W) / 100;">
+
+<main ds="
+width: .form-creating-circle_W;
+height: .form-creating-circle_H;">
+<span ds="height: .form-creating-circle@main_H / 10;
+width: .form-creating-circle@main_W * 2;"></span>
+</main>
+
+<aside ds="height: .form-creating-circle_H / 1.5;
+width: .form-creating-circle_W / 1.5;">
+<img ds="width: .form-creating-circle@aside_W * 2;" src="https://cdn.dribbble.com/userupload/23469654/file/original-6bffe9252be14caa00e6097ca504baa2.gif" alt="" srcset="">
+</aside>
+</section>
+<section class="form-creating-text" ds="height: (.form-creating_H -.form-creating-circle_H) / 5;
+width: .form-creating_W / 2;
+marginT: .form-creating-text_H / 2 !i;">
+
+    <!-- <img src="https://i.pinimg.com/originals/74/43/a3/7443a31b6a19e5630b94a6538ff9bdd1.gif" alt="" srcset="">
+ -->
+
+    <h1 ds="fs: (.form-creating-text_H + .form-creating-text_W) / 20;">Creating account</h1>
+    <h2 ds="fs: (.form-creating-text_H + .form-creating-text_W) / 30;">Please be patient</h2>
+</section>
+
+</section>
+
+
+    </target-block>
+</section>
+</if-block>
+<if-block device="phone">
+    <!-- phone-form-content---form = normal form -->
+    <!-- phone-form-content---loading = loading screen -->
+    <!-- phone-form-content---email = show email sent screen -->
+    <section class="form-content phone-form-content phone-form-content---form" ds="width: .form_W; height: .form_H;">
+<section class="form-content-phone-logo" ds="height: $t$.form-content_H / 7;
+width: $t$.form-content_W / 1.1;">
+    <img ds="width: .form-content-phone-logo_W / 1.5;
+    max-height: .form-content-phone-logo_H / 1.050;" src="https://i.postimg.cc/3wRXXvyy/blue-upscalemedia-transformed.png" style="filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7472%) hue-rotate(206deg) brightness(114%) contrast(100%);" alt="" srcset="">
+</section>
+<target-block element=".phone-form-content" has="phone-form-content---form" data-active="true">
+    <section class="top-container phone-form-contents-show-up" id="phone-form-contents">
+
+    
+    <section class="form-content-heading" ds="width: $t$.form-content_W / 1.1;
+     height: ($t$.form-content_H - (.form-content-phone-logo_H)) / 13;
+     marginT: 0 !i;">
+        <h1 ds="fs: ($t$.form-content-heading_H + $t$.form-content-heading_W) / 15;">Create an account</h1>
+    </section>
+
+    <section class="form-content-input---phone" id="name" ds="height: ($t$.form-content_H - ($t$.form-content@.form-content-heading_H + .form-content-phone-logo_H)) / 8;
+    width: $t$.form-content_W / 1.1;
+    ">
+
+        <main ds="
+        height: ($t$.form-content-input---phone_H) / 1.9;
+        width: $t$.form-content-input---phone_W;">
+        <section ds="
+        width: $t$.form-content-input---phone@main_W / 5;">
+
+            <span ds="height: $t$.form-content-input---phone@main_H / 2.1; 
+            width: $t$.form-content-input---phone@main@section_W;">
+            <i ds="
+                fs: ($t$.form-content-input---phone@main@span_H + $t$.form-content-input---phone@main@span_W) / 6;" class="fa-solid fa-id-card-clip"></i>
+            </span>
+            <h1 ds="height: $t$.form-content-input---phone@main_H / 2;
+            width: $t$.form-content-input---phone@main@section_W;
+            fs: ($t$.form-content-input---phone@main@h1_H + $t$.form-content-input---phone@main@h1_W) / 8;">
+        Name</h1>
+        </section>
+          <aside ds="height: ($t$.form-content-input---phone@main@span_H +  $t$.form-content-input---phone@main@h1_H) / 1.2;
+         width: $t$.form-content-input---phone@main_W - ($t$.form-content-input---phone@main@section_W)">
+
+                                <input connect="name-port" maxlength="255" type="text" ds="height: $t$.form-content-input---phone@aside_H - (($t$.form-content-input---phone@aside_H + $t$.form-content-input---phone@aside_W) / 150);
+            width: $t$.form-content-input---phone@aside_W / 1.020;
+            fs: ($t$.form-content-input---phone@main@h1_H + $t$.form-content-input---phone@main@h1_W) / 7;
+            border-width: ($t$.form-content-input---phone@aside_H + $t$.form-content-input---phone@aside_W) / 300;">
+        </aside>
+        </main>
+      
+        <h6 id="errorMessage" ds="height: ($t$.form-content-input---phone_H - $t$.form-content-input---phone@main_H) / 1.5;
+        marginT: ($t$.form-content-input---phone_H - ($t$.form-content-input---phone@main_H + $t$.form-content-input---phone@h6_H)) / 2 !i;">
+            <span ds="fs: ($t$.form-content-input---phone@h6_H + $t$.form-content-input---phone@h6_W) / 30;
+            width: $t$.form-content-input---phone@h6_W / 1.1;
+            max-height: $t$.form-content-input---phone@h6_H / 1.1;
+            line-height: ($t$.form-content-input---phone@h6_H + $t$.form-content-input---phone@h6_W) / 20;" id="errorMessageText">
+         error 0
+        </span>
+        </h6>
+    </section>
+
+    <section class="form-content-input---phone" id="email" ds="height: ($t$.form-content_H - ($t$.form-content@.form-content-heading_H + .form-content-phone-logo_H)) / 8;
+    width: $t$.form-content_W / 1.1;
+    ">
+
+        <main ds="
+        height: ($t$.form-content-input---phone_H) / 1.9;
+        width: $t$.form-content-input---phone_W;">
+        <section ds="
+        width: $t$.form-content-input---phone@main_W / 5;">
+
+            <span ds="height: $t$.form-content-input---phone@main_H / 2.1; 
+            width: $t$.form-content-input---phone@main@section_W;">
+            <i ds="
+                fs: ($t$.form-content-input---phone@main@span_H + $t$.form-content-input---phone@main@span_W) / 6;" class="fa-solid fa-envelope"></i>
+            </span>
+            <h1 ds="height: $t$.form-content-input---phone@main_H / 2;
+            width: $t$.form-content-input---phone@main@section_W;
+            fs: ($t$.form-content-input---phone@main@h1_H + $t$.form-content-input---phone@main@h1_W) / 8;">Email</h1>
+        </section>
+          <aside ds="height: ($t$.form-content-input---phone@main@span_H +  $t$.form-content-input---phone@main@h1_H) / 1.2;
+         width: $t$.form-content-input---phone@main_W - ($t$.form-content-input---phone@main@section_W)">
+
+                                    <input connect="email-port" maxlength="255" type="email" ds="height: $t$.form-content-input---phone@aside_H - (($t$.form-content-input---phone@aside_H + $t$.form-content-input---phone@aside_W) / 150);
+                width: $t$.form-content-input---phone@aside_W / 1.020;
+                fs: ($t$.form-content-input---phone@main@h1_H + $t$.form-content-input---phone@main@h1_W) / 7;
+                border-width: ($t$.form-content-input---phone@aside_H + $t$.form-content-input---phone@aside_W) / 300;">
+        </aside>
+        </main>
+      
+        <h6 id="errorMessage" ds="height: ($t$.form-content-input---phone_H - $t$.form-content-input---phone@main_H) / 1.5;
+        marginT: ($t$.form-content-input---phone_H - ($t$.form-content-input---phone@main_H + $t$.form-content-input---phone@h6_H)) / 2 !i;">
+            <span ds="fs: ($t$.form-content-input---phone@h6_H + $t$.form-content-input---phone@h6_W) / 30;
+            width: $t$.form-content-input---phone@h6_W / 1.1;
+            max-height: $t$.form-content-input---phone@h6_H / 1.1;
+            line-height: ($t$.form-content-input---phone@h6_H + $t$.form-content-input---phone@h6_W) / 20;" id="errorMessageText">
+         error 1
+        </span>
+        </h6>
+    </section>
+    <section class="form-content-input---phone" id="username" ds="height: ($t$.form-content_H - ($t$.form-content@.form-content-heading_H + .form-content-phone-logo_H)) / 8;
+    width: $t$.form-content_W / 1.1;
+    ">
+
+        <main ds="
+        height: ($t$.form-content-input---phone_H) / 1.9;
+        width: $t$.form-content-input---phone_W;">
+        <section ds="
+        width: $t$.form-content-input---phone@main_W / 5;">
+
+            <span ds="height: $t$.form-content-input---phone@main_H / 2.1; 
+            width: $t$.form-content-input---phone@main@section_W;">
+            <i ds="
+                fs: ($t$.form-content-input---phone@main@span_H + $t$.form-content-input---phone@main@span_W) / 6;" class="fa-solid fa-signature"></i>
+            </span>
+            <h1 ds="height: $t$.form-content-input---phone@main_H / 2;
+            width: $t$.form-content-input---phone@main@section_W;
+            fs: ($t$.form-content-input---phone@main@h1_H + $t$.form-content-input---phone@main@h1_W) / 8;">Username</h1>
+        </section>
+          <aside ds="height: ($t$.form-content-input---phone@main@span_H +  $t$.form-content-input---phone@main@h1_H) / 1.2;
+         width: $t$.form-content-input---phone@main_W - ($t$.form-content-input---phone@main@section_W)">
+
+                                <input connect="username-port" maxlength="255" type="text" ds="height: $t$.form-content-input---phone@aside_H - (($t$.form-content-input---phone@aside_H + $t$.form-content-input---phone@aside_W) / 150);
+            width: $t$.form-content-input---phone@aside_W / 1.020;
+            fs: ($t$.form-content-input---phone@main@h1_H + $t$.form-content-input---phone@main@h1_W) / 7;
+            border-width: ($t$.form-content-input---phone@aside_H + $t$.form-content-input---phone@aside_W) / 300;">
+        </aside>
+        </main>
+      
+        <h6 id="errorMessage" ds="height: ($t$.form-content-input---phone_H - $t$.form-content-input---phone@main_H) / 1.5;
+        marginT: ($t$.form-content-input---phone_H - ($t$.form-content-input---phone@main_H + $t$.form-content-input---phone@h6_H)) / 2 !i;">
+            <span ds="fs: ($t$.form-content-input---phone@h6_H + $t$.form-content-input---phone@h6_W) / 30;
+            width: $t$.form-content-input---phone@h6_W / 1.1;
+            max-height: $t$.form-content-input---phone@h6_H / 1.1;
+            line-height: ($t$.form-content-input---phone@h6_H + $t$.form-content-input---phone@h6_W) / 20;" id="errorMessageText">
+         error 2
+        </span>
+        </h6>
+    </section>
+    <section class="form-content-input---phone" id="password" ds="height: ($t$.form-content_H - ($t$.form-content@.form-content-heading_H + .form-content-phone-logo_H)) / 8;
+    width: $t$.form-content_W / 1.1;
+    ">
+
+        <main ds="
+        height: ($t$.form-content-input---phone_H) / 1.9;
+        width: $t$.form-content-input---phone_W;">
+        <section ds="
+        width: $t$.form-content-input---phone@main_W / 5;">
+            <span ds="height: $t$.form-content-input---phone@main_H / 2.1; 
+            width: $t$.form-content-input---phone@main@section_W;">
+            <i ds="
+                fs: ($t$.form-content-input---phone@main@span_H + $t$.form-content-input---phone@main@span_W) / 6;" class="fa-solid fa-key"></i>
+            </span>
+            <h1 ds="height: $t$.form-content-input---phone@main_H / 2;
+            width: $t$.form-content-input---phone@main@section_W;
+            fs: ($t$.form-content-input---phone@main@h1_H + $t$.form-content-input---phone@main@h1_W) / 8;">
+        Password</h1>
+        </section>
+          <aside ds="height: ($t$.form-content-input---phone@main@span_H +  $t$.form-content-input---phone@main@h1_H) / 1.2;
+         width: $t$.form-content-input---phone@main_W - ($t$.form-content-input---phone@main@section_W)">
+
+                                <input connect="password-port" maxlength="255" type="password" ds="height: $t$.form-content-input---phone@aside_H - (($t$.form-content-input---phone@aside_H + $t$.form-content-input---phone@aside_W) / 150);
+            width: $t$.form-content-input---phone@aside_W / 1.020;
+            fs: ($t$.form-content-input---phone@main@h1_H + $t$.form-content-input---phone@main@h1_W) / 7;
+            border-width: ($t$.form-content-input---phone@aside_H + $t$.form-content-input---phone@aside_W) / 300;">
+        </aside>
+        </main>
+      
+        <h6 id="errorMessage" ds="height: ($t$.form-content-input---phone_H - $t$.form-content-input---phone@main_H) / 1.5;
+        marginT: ($t$.form-content-input---phone_H - ($t$.form-content-input---phone@main_H + $t$.form-content-input---phone@h6_H)) / 2 !i;">
+            <span ds="fs: ($t$.form-content-input---phone@h6_H + $t$.form-content-input---phone@h6_W) / 30;
+            width: $t$.form-content-input---phone@h6_W / 1.1;
+            max-height: $t$.form-content-input---phone@h6_H / 1.1;
+            line-height: ($t$.form-content-input---phone@h6_H + $t$.form-content-input---phone@h6_W) / 20;" id="errorMessageText">
+         error 3
+        </span>
+        </h6>
+    </section>
+
+    <section class="form-content-input-date---phone" id="date" ds="height: (($t$.form-content_H - ((.form-content-input---phone_H * 4) + $t$.form-content@.form-content-heading_H + .form-content-phone-logo_H)) / 5) + ($t$.form-content@.form-content-input---phone@h6_H * 1.1);
+    width: $t$.form-content_W / 1.1;">
+        <aside ds="height: ($t$.form-content_H - ((.form-content-input---phone_H * 4) + $t$.form-content@.form-content-heading_H + .form-content-phone-logo_H)) / 5;">
+
+            <main ds="height: .form-content-input-date---phone@aside_H / 2;
+            width: .form-content-input-date---phone_W / 1.050">
+            <i ds="fs: (.form-content-input-date---phone_H + .form-content-input-date---phone_W) / 25;" class="fa-solid fa-calendar"></i>
+            <h1 ds="fs: (.form-content-input-date---phone@aside@main_H + .form-content-input-date---phone@aside@main_W) / 25;">Date of birth</h1>
+        </main>
+        <section class="form-content-input-date---phone-values" ds="height: .form-content-input-date---phone@aside_H - (.form-content-input-date---phone@aside@main_H);
+        width: .form-content-input-date---phone@aside_W;">
+
+        <section class="form-content-input-date---phone-value" id="day-data--phone" ds="height: .form-content-input-date---phone-values_H / 1.2;
+        width: .form-content-input-date---phone-values_W / 3.5;">
+<span ds="fs: ($t$.form-content-input-date---phone-value_H + $t$.form-content-input-date---phone-value_W) / 10;">
+    Day
+</span>
+<span ds="
+fs: ($t$.form-content-input-date---phone-value_H + $t$.form-content-input-date---phone-value_W) / 10;" id="phone-date-value">
+                                        
+</span>
+                                    <input oninput="simulateInputs(this , [[this.closest('section').querySelector('#phone-date-value') , 'data-day'] , ['.form-content #day-data span strong' , 'data-day' , '.form-content #day-data'] , 
+['.form-content #day-data span strong' , 'value' , '.form-content #day-data input']])" type="number">
+        </section>
+        <section class="form-content-input-date---phone-value" id="month-data--phone" ds="height: .form-content-input-date---phone-values_H / 1.2;
+        width: .form-content-input-date---phone-values_W / 2.8;">
+<span ds="fs: ($t$.form-content-input-date---phone-value_H + $t$.form-content-input-date---phone-value_W) / 12;">
+    Month
+</span>
+<span ds="
+fs: ($t$.form-content-input-date---phone-value_H + $t$.form-content-input-date---phone-value_W) / 15;" id="phone-date-value">
+                                        </span>
+                                    <input oninput="simulateInputs(this , [[this.closest('section').querySelector('#phone-date-value') , 'data-month'] , ['.form-content #month-data span strong' , 'data-month' , '.form-content #month-data'], 
+['.form-content #month-data span strong' , 'value' , '.form-content #month-data input']])" type="text" maxlength="9">
+        </section>
+        <section class="form-content-input-date---phone-value" id="year-data--phone" ds="height: .form-content-input-date---phone-values_H / 1.2;
+        width: .form-content-input-date---phone-values_W / 3.5;">
+<span ds="fs: ($t$.form-content-input-date---phone-value_H + $t$.form-content-input-date---phone-value_W) / 10;">
+    Year
+</span>
+<span ds="
+fs: ($t$.form-content-input-date---phone-value_H + $t$.form-content-input-date---phone-value_W) / 10;" id="phone-date-value">
+                                        
+                                    </span>
+                                    <input oninput="simulateInputs(this , [[this.closest('section').querySelector('#phone-date-value') , 'data-year'] , ['.form-content #year-data span strong' , 'data-year' , '.form-content #year-data'], 
+['.form-content #year-data span strong' , 'value' , '.form-content #year-data input']])" type="number">
+        </section>
+
+        </section>
+
+    </aside>
+
+    <h6 id="errorMessage" ds="
+    height: $t$.form-content@.form-content-input---phone@h6_H;
+    width: .form-content-input-date---phone_W;
+    marginT: .form-content-input-date---phone_H - (.form-content-input-date---phone@aside_H + .form-content-input-date---phone@h6_H) !i;">
+        <span id="errorMessageText" ds="width: $t$.form-content-input-date---phone@h6_W;
+        fs: ($t$.form-content-input-date---phone@h6_H + $t$.form-content-input-date---phone@h6_W) / 30;">
+    error 5
+    </span>
+    </h6>
+    </section>
+    <button onclick="phoneSignUpBtn()" class="sign-up-btn-phone" ds="
+    width: $t$.form-content_W / 1.3;
+    height: ($t$.form-content_H - (($t$.form-content@.form-content-input---phone_H * 4) + .form-content-input-date---phone_H + .form-content-phone-logo_H + $t$.form-content@.form-content-heading_H)) / 4;
+    border-width: (.sign-up-btn-phone_H + .sign-up-btn-phone_W) / 50;
+    marginT: (.sign-up-btn-phone_H + .sign-up-btn-phone_W) / 50 !i;
+    ">
+        <h1 ds="height: .sign-up-btn-phone_H - ((.sign-up-btn-phone_H + .sign-up-btn-phone_W) / 25);
+width: .sign-up-btn-phone_W - ((.sign-up-btn-phone_H + .sign-up-btn-phone_W) / 25);">
+
+<span class="sign-up-btn-phone-text" ds="fs: (.sign-up-btn-phone@h1_H + .sign-up-btn-phone@h1_W) / 25;">
+    Register now
+</span>
+
+
+
+</h1>
+    </button>
+                        <section class="phone-or-section" ds="
+    width: $t$.form-content_W / 1.1;
+height: ($t$.form-content_H - (.form-content-phone-logo_H + $t$.form-content@.form-content-heading_H + (.form-content-input---phone_H * 4) + .form-content-input-date---phone_H + .sign-up-btn-phone_H)) / 5;">
+                            <aside class="phone-or-section-aside" ds="width: .phone-or-section_W / 2.5;">
+                                <span ds="width: ($t$.phone-or-section-aside_W + $t$.phone-or-section-aside_H) / 40;
+            height: ($t$.phone-or-section-aside_W + $t$.phone-or-section-aside_H) / 40;"></span>
+                                <span ds="width: ($t$.phone-or-section-aside_W + $t$.phone-or-section-aside_H) / 40;
+            height: ($t$.phone-or-section-aside_W + $t$.phone-or-section-aside_H) / 40;"></span>
+                                <span ds="width: ($t$.phone-or-section-aside_W + $t$.phone-or-section-aside_H) / 40;
+            height: ($t$.phone-or-section-aside_W + $t$.phone-or-section-aside_H) / 40;"></span>
+                            </aside>
+                            <aside class="phone-or-section-aside" ds="width: .phone-or-section_W / 2.5;">
+                                <span ds="width: ($t$.phone-or-section-aside_W + $t$.phone-or-section-aside_H) / 40;
+            height: ($t$.phone-or-section-aside_W + $t$.phone-or-section-aside_H) / 40;"></span>
+                                <span ds="width: ($t$.phone-or-section-aside_W + $t$.phone-or-section-aside_H) / 40;
+            height: ($t$.phone-or-section-aside_W + $t$.phone-or-section-aside_H) / 40;"></span>
+                                <span ds="width: ($t$.phone-or-section-aside_W + $t$.phone-or-section-aside_H) / 40;
+            height: ($t$.phone-or-section-aside_W + $t$.phone-or-section-aside_H) / 40;"></span>
+                            </aside>
+
+                            <h1 ds="
+width: .phone-or-section_W - (.phone-or-section-aside_W * 2);
+fs: (.phone-or-section-aside_W + .phone-or-section-aside_H) / 15;">Or</h1>
+                        </section>
+                        <section class="continue-with-btns" ds="width: $t$.form-content_W / 1.1;
+height: ($t$.form-content_H - (.form-content-phone-logo_H + $t$.form-content@.form-content-heading_H + (.form-content-input---phone_H * 4) + .form-content-input-date---phone_H + .sign-up-btn-phone_H + .phone-or-section_H)) / 2;">
+
+<button class="continue-with-btns-btn" onclick="continueWithGoogle()" ds="
+width: .continue-with-btns_W / 2.2;">
+    <span ds="width: $t$.continue-with-btns-btn_W / 5;">
+        <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="">
+    </span>
+    <main ds="width: ($t$.continue-with-btns-btn_W - .$t$.continue-with-btns-btn@span_W) / 1.3;
+    height: $t$.continue-with-btns-btn_H;">
+<img src="https://i.postimg.cc/4dHycp2G/image.png" alt="" srcset="" ds="width: $t$.continue-with-btns-btn@main_W;
+">
+    </main>
+</button>
+<button class="continue-with-btns-btn" onclick="continueWithFacebook()" ds="
+width: .continue-with-btns_W / 2.2;">
+    <span ds="width: $t$.continue-with-btns-btn_W / 5;">
+        <img src="https://static.vecteezy.com/system/resources/previews/018/930/698/non_2x/facebook-logo-facebook-icon-transparent-free-png.png" alt="">
+    </span>
+    <main ds="width: ($t$.continue-with-btns-btn_W - .$t$.continue-with-btns-btn@span_W) / 1.3;
+    height: $t$.continue-with-btns-btn_H;">
+<img src="https://i.postimg.cc/4d3cKKVb/image.png" alt="" srcset="" ds="width: $t$.continue-with-btns-btn@main_W;
+">
+    </main>
+</button>
+    </section>
+    <section class="already-account-container---phone already-account-container---phone--normal" ds="width: $t$.form-content_W / 1.1;
+    height: 
+($t$.form-content_H - (.form-content-phone-logo_H + $t$.form-content@.form-content-heading_H + (.form-content-input---phone_H * 4) + .form-content-input-date---phone_H + .sign-up-btn-phone_H + .phone-or-section_H + .continue-with-btns_H)) / 1.5;">
+
+<target-block element=".already-account-container---phone" has="already-account-container---phone--normal" data-active="true">
+                                <a href="" class="wrapper">
+
+                                    <h1 ds="fs: ($t$.already-account-container---phone_H + $t$.already-account-container---phone_W) / 30;">Already have an account?</h1> 
+                                    <h2 ds="fs: ($t$.already-account-container---phone_H + $t$.already-account-container---phone_W) / 35;
+        paddingT: ($t$.already-account-container---phone_H + $t$.already-account-container---phone_W) / 90 !i;
+        paddingB: ($t$.already-account-container---phone_H + $t$.already-account-container---phone_W) / 90 !i;
+        paddingL: ($t$.already-account-container---phone_H + $t$.already-account-container---phone_W) / 90 !i;
+        paddingR: ($t$.already-account-container---phone_H + $t$.already-account-container---phone_W) / 90 !i;
+        marginL: ($t$.already-account-container---phone_H + $t$.already-account-container---phone_W) / 90 !i;
+
+                                    ">Login</h2>
+                                </a>
+                        </target-block>
+<target-block element=".already-account-container---phone" has="already-account-container---phone--continue">
+                                <a href="" class="wrapper wrapper-continue" ds="width: .already-account-container---phone_W - (.already-account-container---phone_W / 3);
+        height: .already-account-container---phone_H;">
+
+                                    <h1 ds="fs:($t$.wrapper_H + $t$.wrapper_W) / 25;">Already have an account?</h1> 
+                                    <h2 ds="fs:($t$.wrapper_H + $t$.wrapper_W) / 25;
+        paddingT: ($t$.wrapper_H + $t$.wrapper_W) / 60 !i;
+        paddingB: ($t$.wrapper_H + $t$.wrapper_W) / 60 !i;
+        paddingL: ($t$.wrapper_H + $t$.wrapper_W) / 60 !i;
+        paddingR: ($t$.wrapper_H + $t$.wrapper_W) / 60 !i;
+        marginL:  ($t$.wrapper_H + $t$.wrapper_W) / 60 !i;
+
+                                    ">Login</h2>
+                                </a>
+                            <button class="continue-email-box---phone" onclick="syncContinue()" ds="height: .already-account-container---phone_H / 1.3;
+width: .already-account-container---phone_W / 2.8;">
+    <span ds="fs: (.continue-email-box---phone_H + .continue-email-box---phone_W) / 18;">Continue to email box</span>
+    <i ds="fs: (.continue-email-box---phone_H + .continue-email-box---phone_W) / 12;" class="fa-solid fa-circle-right"></i>
+</button>
+</target-block>
+
+
+    </section>
+    </section>
+</target-block>
+
+<target-block element=".phone-form-content" has="phone-form-content---loading">
+    <section class="top-container phone-form-loading-show-up" id="form-phone-loader">
+
+    
+<section class="form-loader--phone" ds="height: $t$.form-content_H - (.form-content-phone-logo_H);
+width: $t$.form-content_W;">
+
+<section class="phone-form-loader-circle" ds="height: (.form-loader--phone_H + .form-loader--phone_W) / 4;
+width:  (.form-loader--phone_H + .form-loader--phone_W) / 4;">
+
+<aside ds="height: .phone-form-loader-circle_H / 1.1;
+width: .phone-form-loader-circle_W / 1.1;">
+<span ds="height: .phone-form-loader-circle@aside_H / 5;
+width: .phone-form-loader-circle@aside_W * 2;">
+
+</span>
+</aside>
+
+<main ds="height: .phone-form-loader-circle_H / 1.3;
+width: .phone-form-loader-circle_W / 1.3;">
+    <img ds="width: .phone-form-loader-circle_W * 1.5;" src="https://cdn.dribbble.com/userupload/23469654/file/original-6bffe9252be14caa00e6097ca504baa2.gif" alt="" srcset="">
+</main>
+
+
+</section>
+<!-- now work on function that opens this loading
+ and then make a universial loader function -->
+<section class="form-loader--phone-text" ds="width: .form-loader--phone_W / 1.1;
+height: (.form-loader--phone_H - (.phone-form-loader-circle_H)) / 5;">
+
+    <h1 ds="fs: (.form-loader--phone-text_H + .form-loader--phone-text_W) / 20;">Creating account</h1>
+    <h2 ds="fs: (.form-loader--phone-text_H + .form-loader--phone-text_W) / 25;">Please be patient</h2>
+</section>
+
+
+</section>
+</section>
+</target-block>
+<target-block element=".phone-form-content" has="phone-form-content---email">
+<section class="top-container email-sent-form---phone">
+
+    <section class="phone-email-sent-form" ds="height: $t$.form-content_H - .form-content-phone-logo_H;
+    width: $t$.form-content_W;">
+    
+    <section class="phone-email-sent-form-circle" ds="width: (.phone-email-sent-form_H + .phone-email-sent-form_W) / 8;
+    height: (.phone-email-sent-form_H + .phone-email-sent-form_W) / 8;
+    marginT: (.phone-email-sent-form_H + .phone-email-sent-form_W) / 20 !i;">
+        <main ds="
+height: .phone-email-sent-form-circle_H / 1.3;
+width: .phone-email-sent-form-circle_W / 1.3;">
+            <i ds="fs: (.phone-email-sent-form-circle@main_H + .phone-email-sent-form-circle@main_W) / 5;" class="fa-solid fa-envelope-circle-check"></i>
+        </main>
+        <aside ds="height: .phone-email-sent-form-circle_H;
+width: .phone-email-sent-form-circle_W;">
+            <span ds="height: (.phone-email-sent-form-circle@main_H + .phone-email-sent-form-circle@main_W) / 3;
+            width: .phone-email-sent-form-circle@aside_W * 2;"></span>
+        </aside>
+    </section>
+
+    <section class="phone-email-sent-form-text" ds="height: (.phone-email-sent-form_H - (.phone-email-sent-form-circle_H + ((.phone-email-sent-form_H + .phone-email-sent-form_W) / 20))) / 5;
+    width: .phone-email-sent-form_W / 1.1;">
+        <h1 ds="max-height: .phone-email-sent-form-text_H / 3.1;
+        width: .phone-email-sent-form-text_W;
+        fs: ((.phone-email-sent-form-text_H / 3.1) + .phone-email-sent-form-text@h1_W) / 17;">We have sent a code to</h1>
+        <a href="" ds="max-height: .phone-email-sent-form-text_H / 3.1;
+        width: .phone-email-sent-form-text_W;
+        fs: ((.phone-email-sent-form-text_H / 3.1) + .phone-email-sent-form-text@h1_W) / 17;"></a>
+        <h3 ds="max-height: .phone-email-sent-form-text_H / 3.1;
+        width: .phone-email-sent-form-text_W;
+        fs: ((.phone-email-sent-form-text_H / 3.1) + .phone-email-sent-form-text@h1_W) / 30;">Please check your email and enter the code below</h3>
+    </section>
+
+    
+    <section class="phone-input-code-container" id="phoneEmailCode" ds="
+    height: (.phone-email-sent-form_H - (.phone-email-sent-form-circle_H + ((.phone-email-sent-form_H + .phone-email-sent-form_W) / 20) + .phone-email-sent-form-text_H)) / 6;
+    width: .phone-form-content_W / 1.1;">
+
+    <section class="phone-input-code-container-row" ds="height: .phone-input-code-container_H; 
+    width: .phone-input-code-container_W / 1.050;">
+
+        <section class="phone-input-code-container-code" ds="height: .phone-input-code-container_H;
+        width: .phone-input-code-container_W / 7;">
+        <input host="email-code-1" type="text" maxlength="1" ds="fs: ($t$.phone-input-code-container-code_H + $t$.phone-input-code-container-code_W) / 5;">
+    </section>
+        <section class="phone-input-code-container-code" ds="height: .phone-input-code-container_H;
+        width: .phone-input-code-container_W / 7;">
+        <input host="email-code-2" type="text" maxlength="1" ds="fs: ($t$.phone-input-code-container-code_H + $t$.phone-input-code-container-code_W) / 5;">
+    </section>
+        <section class="phone-input-code-container-code" ds="height: .phone-input-code-container_H;
+        width: .phone-input-code-container_W / 7;">
+        <input host="email-code-3" type="text" maxlength="1" ds="fs: ($t$.phone-input-code-container-code_H + $t$.phone-input-code-container-code_W) / 5;">
+    </section>
+        <section class="phone-input-code-container-code" ds="height: .phone-input-code-container_H;
+        width: .phone-input-code-container_W / 7;">
+        <input host="email-code-4" type="text" maxlength="1" ds="fs: ($t$.phone-input-code-container-code_H + $t$.phone-input-code-container-code_W) / 5;">
+    </section>
+        <section class="phone-input-code-container-code" ds="height: .phone-input-code-container_H;
+        width: .phone-input-code-container_W / 7;">
+        <input host="email-code-5" type="text" maxlength="1" ds="fs: ($t$.phone-input-code-container-code_H + $t$.phone-input-code-container-code_W) / 5;">
+    </section>
+        <section class="phone-input-code-container-code" ds="height: .phone-input-code-container_H;
+        width: .phone-input-code-container_W / 7;">
+        <input host="email-code-6" type="text" maxlength="1" ds="fs: ($t$.phone-input-code-container-code_H + $t$.phone-input-code-container-code_W) / 5;">
+    </section>
+      
+</section>
+    
+    
+
+    </section>
+
+   
+     <section onclick="getEmailCodeByUser()" class="phone-email-form-submit-btn" ds="height: (.phone-email-sent-form_H - (.phone-email-sent-form-circle_H + ((.phone-email-sent-form_H + .phone-email-sent-form_W) / 20) + .phone-email-sent-form-text_H + .phone-input-code-container_H)) / 3;
+     width: .phone-email-sent-form_W / 1.1;">
+    <button ds="
+    height: .phone-email-form-submit-btn_H / 2;
+    width: .phone-email-form-submit-btn_W / 1.030;
+    border-width: (.phone-email-form-submit-btn@button_H + .phone-email-form-submit-btn@button_W) / 100;">
+    <span style="margin-right: 1ch !important;">Submit code</span>
+    <i class="fa-solid fa-caret-right"></i>
+
+    </button>
+     </section>
+    
+    
+
+<section class="phone-resend-code" ds="width: .phone-email-sent-form_W / 1.1;
+height: (.phone-email-sent-form_H - (.phone-email-sent-form-circle_H + ((.phone-email-sent-form_H + .phone-email-sent-form_W) / 20) + .phone-email-sent-form-text_H + .phone-input-code-container_H + .phone-email-form-submit-btn_H)) / 4;">
+    <main ds="
+    width: .phone-resend-code_W;
+    height: .phone-resend-code_H;">
+     
+        <h1 ds="fs: (.phone-resend-code@main_H + .phone-resend-code@main_W) / 30;">Didn't recived an email?</h1>
+         <button onclick="syncResend()" ds="
+         height: .phone-resend-code@main_H / 1.5;
+         width: .phone-resend-code@main_W / 3;
+         fs: (.phone-resend-code@main@button_H + .phone-resend-code@main@button_W) / 12;
+         marginL: (.phone-resend-code@main@button_H + .phone-resend-code@main@button_W) / 12 !i; ">
+        Resend code
+        </button>
+    </main>
+</section>
+ <section class="phone-go-back" ds="
+     width: .phone-email-sent-form_W / 1.1;
+     height: (.phone-email-sent-form_H - (.phone-email-sent-form-circle_H + ((.phone-email-sent-form_H + .phone-email-sent-form_W) / 20) + .phone-email-sent-form-text_H + .phone-input-code-container_H + .phone-email-form-submit-btn_H)) / 1.3">
+        <img onclick="syncGoBack()" ds="width: .phone-go-back_W / 3;
+        max-height: .phone-go-back_H;" src="https://i.postimg.cc/Px3yx7r6/Untitleasad.png" alt="" srcset="">
+     </section>
+</section>
+</section>
+
+</target-block>
+
+
+    
+
+
+   
+
+</section>
+</if-block>
+</section>
+ <section class="background-image" ds="height: .page_H; width: .page_W;" style="height: 1132px; width: 1342px;">
+    <!-- likes this one -->
+        <!-- <img ds="width: .form_W / 2;" src="https://cdn.dribbble.com/userupload/24033968/file/original-6d63db7bab464b7c4ca22221810aef58.gif" alt="" srcset=""> -->
+        <!-- <img ds="width: .page_W;" src="https://wallpapercave.com/wp/wp12535914.png" alt="" srcset=""> -->
+        <!-- <img ds="width: .page_W;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoNdQjVtZevpNfFnNjTGe3462EhWYQMk7mvg&s" alt="" srcset=""> -->
+        <!-- <img ds="width: .form_W / 2;
+        left: (.page_W - .form_W) / 2; 
+        bottom: (.page_H - .form_H) / 2;" src="https://media.istockphoto.com/id/1433485090/video/dots-makes-global-world-map-global-wireframe-polygonal-lines.jpg?s=640x640&k=20&c=6TpfX8QHt9IPnF0s5HkwOaNoqcNbtYP99Ceh7-iR8MI=" alt="" srcset=""> -->
+        <!-- <img ds="width: .form_W / 2;
+        left: (.page_W - .form_W) / 2; 
+        bottom: (.page_H - .form_H) / 2;" src="https://img.freepik.com/free-vector/worldwide-connection-blue-background-illustration-vector_53876-61770.jpg" alt="" srcset=""> -->
+        <main></main>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        
+
+
+<script>
+    var errorCodes = 
+    {
+"InvalidLoginAttempt": "INVALID_LOGIN_ATTEMPT","Redirect": "REDIRECT","NoAt": "NO_AT","EmptyEmail": "EMPTY_EMAIL","EmailLong": "EMAIL_LONG","EmailShort": "EMAIL_SHORT","PasswordLong": "PASSWORD_LONG","PasswordNoUnique": "PASSWORD_NO_UNIQUE","PasswordNoNumber": "PASSWORD_NO_NUMBER","PasswordEmpty": "EMPTY_PASSWORD","PasswordHaveSpace": "PASSWORD_SPACE","UsernameAndEmailIsEmptyAtleastOneShouldBeProvided": "ALL_NULL","Universal": "UNIVERSAL","UserNotFound": "USER_NOT_FOUND","RoleNotExistsFailedToAssign": "ROLE_NOT_EXISTS_FAILED_TO_ASSIGN","UserNotFoundByEmail": "USER_NOT_FOUND_BY_EMAIL","UserNotFoundByUsername": "USER_NOT_FOUND_BY_USERNAME","NoUserFoundFailedToGetRoles": "USER_NOT_FOUND_FAILED_TO_GET_ROLES","NoUserFoundFailedToRemoveRoles": "USER_NOT_FOUND_FAILED_TO_REMOVE_ROLES","NoUserFoundFailedToUpdateUser": "USER_NOT_FOUND_FAILED_TO_UPDATE_USER","NoUpdateDetailsProvided": "NO_UPDATE_DETAILS_PROVIDED","EmptyRole": "ROLE_EMPTY","SomethingWentWrong": "SOMETHING_WRONG","FailedToCreateAccount": "FAILED_TO_CREATE_ACCOUNT","InvalidCodeAttempt": "INVALID_CODE_ATTEMPT","EmptyName": "EMPTY_NAME","EmptyUsername": "EMPTY_USERNAME","InvalidDate": "DATE_INVALID","EmailAlreadyExists": "EMAIL_EXISTS","InvalidChanges": "INVALID_CHANGE","DefaultError": "DEFAULT_ERROR","ConcurrencyFailure": "CONCURRENCY_FAILURE","PasswordMismatch": "PASSWORD_MISMATCH","InvalidToken": "INVALID_TOKEN","LoginAlreadyAssociated": "LOGIN_ALREADY_ASSOCIATED","InvalidUserName": "INVALID_USER_NAME","InvalidEmail": "INVALID_EMAIL","DuplicateUserName": "DUPLICATE_USER_NAME","DuplicateEmail": "DUPLICATE_EMAIL","DuplicateRoleName": "DUPLICATE_ROLE_NAME","UserAlreadyHasPassword": "USER_ALREADY_HAS_PASSWORD","UserLockoutNotEnabled": "USER_LOCKOUT_NOT_ENABLED","UserAlreadyInRole": "USER_ALREADY_IN_ROLE","UserNotInRole": "USER_NOT_IN_ROLE","PasswordTooShort": "PASSWORD_TOO_SHORT","PasswordRequiresNonAlphanumeric": "PASSWORD_REQUIRES_NON_ALPHANUMERIC","PasswordRequiresDigit": "PASSWORD_REQUIRES_DIGIT","PasswordRequiresLower": "PASSWORD_REQUIRES_LOWER","PasswordRequiresUpper": "PASSWORD_REQUIRES_UPPER","PasswordRequiresUniqueChars": "PASSWORD_REQUIRES_UNIQUE_CHARS","InvalidEmailIdentity": "INVALID_EMAIL",    };
+</script>
+    <script src="./js/main.js"></script>
+    <script>
+
+
+    </script>
+    <script src="/Script/JavaScript/Account_SignUp.js"></script>
+
+    
+
+<!-- Visual Studio Browser Link -->
+<script type="text/javascript" src="/_vs/browserLink" async="async" id="__browserLink_initializationData" data-requestid="57ef6bff8fc8442f882dc6d7a0e4601b" data-requestmappingfromserver="false" data-connecturl="http://localhost:58092/5c3d35640afd457da697c38bc8d8bb7b/browserLink"></script>
+<!-- End Browser Link -->
+<script src="/_framework/aspnetcore-browser-refresh.js"></script>
+
+</body></html>

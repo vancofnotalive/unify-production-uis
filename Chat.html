@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/Chat.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Chat</title>
+    <style>
+        
+    </style>
+</head>
+<body class="page" id="page">
+
+<section class="___layout layout-pc">
+<section class="add-friend-modal _add-friend-modal">
+    <section class="modal">
+            <button onclick="AddFriendModal(false)" class="modal-close-btn  {
+                height: $t$.modal_H / 4;
+                width: $t$.modal_H / 4;
+                fs: ($t$.modal-close-btn_H + $t$.modal-close-btn_W) / 4;
+            }">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h1 class=" {
+                height: $t$.modal_H / 3;
+                fs: ($t$.modal_H + $t$.modal_W) / 25;
+            }"> <i class="fa-solid fa-user"></i> <span>Add a friend</span></h1>
+            <h2 class=" {
+                height: $t$.modal_H / 6;
+                fs: ($t$.modal_H + $t$.modal_W) / 40;
+            }">Seach by username</h2>
+            <main class=" {
+                height: $t$.modal_H / 4;
+                width: $t$.modal_W / 1.1;
+            }">
+                <input type="text" class=" {
+                        fs: ($t$.modal_H + $t$.modal_W) / 50;
+                    }">
+                <button onclick="addFriend(this.closest('main').querySelector('input').value.trim())"  class=" {
+                    fs: ($t$.modal_H + $t$.modal_W) / 50;
+                }">
+                    <span>Add</span>
+                </button>
+            </main>
+    </section>
+</section>
+
+<section class="sidebar">
+<section class="sidebar-areas _sidebar-areas">
+<section class="sidebar-areas__logo {
+    height: $t$.sidebar@.sidebar-contents__head_H;
+}">
+<span class=" {
+    height: $t$.sidebar-areas_W / 2;
+    width: $t$.sidebar-areas_W / 2;
+    
+}"><img src="https://i.postimg.cc/jdKP0qJf/shasremovebg-preview.png" alt="" srcset=""></span>
+</section>
+
+<section class="sidebar-areas-scroll-container {
+    height: ($t$._sidebar-areas_H - $t$._sidebar-areas@.sidebar-areas__logo_H) / 1.3;
+}">
+
+
+
+<section onclick="selectPage(this)" data-page="FRIEND" class="sidebar-areas__page 
+_sidebar-friends
+_sidebar-areas-page {
+    height: $t$.sidebar-areas_W;
+    width: $t$.sidebar-areas_W / 1.1;
+}">
+<section class="sidebar-areas__page__notification _notification {
+        height: $t$.sidebar-areas__page_H / 4;
+        width: $t$.sidebar-areas__page_H / 4;
+        fs: ($t$.sidebar-areas__page__notification_H + $t$.sidebar-areas__page__notification_W) / 5;
+    }">
+1
+    </section>
+
+
+    <span class=" sidebar-areas__page__icon {
+        height:  $t$.sidebar-areas__page_W / 2;
+        width: $t$.sidebar-areas__page_W / 2;
+    }"><i class="fa-solid fa-users {
+        fs: ($t$.sidebar-areas__page_H + $t$.sidebar-areas__page_W) / 10;
+    }"></i></span>
+    <h1 class=" {
+        margin-top: ($t$.sidebar-areas__page_H + $t$.sidebar-areas__page_W) / 30 !i;
+        fs: ($t$.sidebar-areas__page_H + $t$.sidebar-areas__page_W) / 10;
+    }">Friends</h1>
+</section>
+
+
+
+
+<section onclick="selectPage(this)" data-page="MANAGEMENT" class="sidebar-areas__page _sidebar-areas-page
+_sidebar-management {
+    height: $t$.sidebar-areas_W;
+    width: $t$.sidebar-areas_W / 1.1;
+}">
+    <section class="sidebar-areas__page__notification _notification {
+        height: $t$.sidebar-areas__page_H / 4;
+        width: $t$.sidebar-areas__page_H / 4;
+        fs: ($t$.sidebar-areas__page__notification_H + $t$.sidebar-areas__page__notification_W) / 5;
+    }">
+1
+    </section>
+
+    <span class=" sidebar-areas__page__icon {
+        height:  $t$.sidebar-areas__page_W / 2;
+        width: $t$.sidebar-areas__page_W / 2;
+    }">
+    <i class="fa-solid fa-screwdriver-wrench {
+        fs: ($t$.sidebar-areas__page_H + $t$.sidebar-areas__page_W) / 10;
+    }"></i></span>
+    <h1 class=" {
+        margin-top: ($t$.sidebar-areas__page_H + $t$.sidebar-areas__page_W) / 30 !i;
+        fs: ($t$.sidebar-areas__page_H + $t$.sidebar-areas__page_W) / 15;
+    }">Mangement</h1>
+</section>
+
+
+</section>
+
+<section class="sidebar-areas__profile {
+    height: ($t$.sidebar-areas_H - ($t$.sidebar-areas@.sidebar-areas__logo_H + $t$.sidebar-areas@.sidebar-areas-scroll-container_H)) / 2;
+}">
+
+<button class=" {
+    height: ($t$.sidebar-areas__profile_H + $t$.sidebar-areas__profile_W) / 5;
+    width: ($t$.sidebar-areas__profile_H + $t$.sidebar-areas__profile_W) / 5;
+}">
+    <img src="https://freesvg.org/img/abstract-user-flat-4.png" alt="" srcset="">
+</button>
+
+</section>
+
+
+</section>
+<section class="sidebar-contents">
+    <section class="sidebar-contents__head ">
+
+    </section>
+
+    <section class="sidebar-contents__contents ">
+
+        <section class="sidebar-contents__contents__content
+        sidebar-contents__contents__content friend-list-- _friend-list">
+        <section onclick="AddFriendModal(true)" class="sidebar-contents__contents__content__add-friend {
+            height: $t$._friend-list_H / 16;
+            marginB: ($t$._friend-list_H + $t$._friend-list_W) / 80 !i;
+            width: $t$._friend-list_W / 3;
+            fs: ($t$.sidebar-contents__contents__content__add-friend_H + $t$.sidebar-contents__contents__content__add-friend_W) / 12;
+            
+        }">
+            <i class="fa-solid fa-plus {
+                top: $t$.sidebar-contents__contents__content__add-friend_H / 50;
+            }"></i> <span>Add friend</span>
+        </section>
+        <main class=" _friend-list-container {
+            height: $t$._friend-list_H - $t$._friend-list@.sidebar-contents__contents__content__add-friend_H;
+        }">
+
+        
+       
+        <section data-user-code="1234567899" class="sidebar-contents__contents__content__friend {
+            height: $t$._friend-list_H / 8;
+            marginB: $t$._friend-list_H / 36 !i;
+        }">
+            <span class=" {
+                height: ($t$.sidebar-contents__contents__content__friend_H + $t$.sidebar-contents__contents__content__friend_W) / 7.2;
+                width:  ($t$.sidebar-contents__contents__content__friend_H + $t$.sidebar-contents__contents__content__friend_W) / 7.2;
+                marginL: ($t$.sidebar-contents__contents__content__friend_H - ($t$.sidebar-contents__contents__content__friend_H / 1.3)) / 2 !i;
+                marginR: ($t$.sidebar-contents__contents__content__friend_H - ($t$.sidebar-contents__contents__content__friend_H / 1.3)) / 2 !i;
+            }">
+                <main style="background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk6HeOL_Px8Yok2_z3WEHuXdAEwzp3AuthKw&s' );
+                background-position: center;
+    background-size: auto 100%;"></main>
+            </span>
+
+            <h1 class=" {
+                width: ($t$.sidebar-contents__contents__content__friend_W - ($t$.sidebar-contents__contents__content__friend@span_W + ((($t$.sidebar-contents__contents__content__friend_H - ($t$.sidebar-contents__contents__content__friend_H / 1.3)) / 1)) * 2));
+                max-height: $t$.sidebar-contents__contents__content__friend@span_H;
+                fs: ($t$.sidebar-contents__contents__content__friend_H + $t$.sidebar-contents__contents__content__friend_W) / 20;
+            }">
+        Arthonic</h1>
+
+        </section>
+        
+        <section class="sidebar-contents__contents__content__friend {
+            height: $t$._friend-list_H / 8;
+            marginB: $t$._friend-list_H / 36 !i;
+        }">
+            <span class=" {
+                height: ($t$.sidebar-contents__contents__content__friend_H + $t$.sidebar-contents__contents__content__friend_W) / 7.2;
+                width:  ($t$.sidebar-contents__contents__content__friend_H + $t$.sidebar-contents__contents__content__friend_W) / 7.2;
+                marginL: ($t$.sidebar-contents__contents__content__friend_H - ($t$.sidebar-contents__contents__content__friend_H / 1.3)) / 2 !i;
+                marginR: ($t$.sidebar-contents__contents__content__friend_H - ($t$.sidebar-contents__contents__content__friend_H / 1.3)) / 2 !i;
+            }">
+                <main style="background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk6HeOL_Px8Yok2_z3WEHuXdAEwzp3AuthKw&s' );
+                background-position: center;
+    background-size: auto 100%;"></main>
+            </span>
+
+            <h1 class=" {
+                width: ($t$.sidebar-contents__contents__content__friend_W - ($t$.sidebar-contents__contents__content__friend@span_W + ((($t$.sidebar-contents__contents__content__friend_H - ($t$.sidebar-contents__contents__content__friend_H / 1.3)) / 1)) * 2));
+                max-height: $t$.sidebar-contents__contents__content__friend@span_H;
+                fs: ($t$.sidebar-contents__contents__content__friend_H + $t$.sidebar-contents__contents__content__friend_W) / 20;
+            }">
+        Arthonic</h1>
+
+        </section>
+        
+
+
+
+        </main>
+
+        </section>
+        <section class="sidebar-contents__contents__content _manage">
+            
+            <section onclick="showFriendRequests(this)" class=" sidebar-contents__contents__content__manage {
+                height: $t$.sidebar-contents__contents__content_H / 8;
+                marginB:  $t$.sidebar-contents__contents__content_H / 36 !i;
+            }">
+            <h1 class=" {
+                fs: ($t$.sidebar-contents__contents__content__manage_H + $t$.sidebar-contents__contents__content__manage_W) / 20;
+            }"> <i class="fa-solid fa-user-gear"></i> <span>Friend request</span></h1>
+            </section>
+        
+
+        </section>
+
+    </section>
+</section>
+</section>
+<section class="window _windows">
+    <section class="window-content _window-content-  _window-content-friend-request">
+        
+        <h1 class="friend-requests-heading {
+            height: $t$.window-content_H / 10;
+            fs: ($t$.window-content_H + $t$.window-content_W) / 60;
+        }"> 
+<i class="fa-solid fa-arrow-down-up-across-line"></i> <span>Friend requests</span>
+        </h1>
+            
+<section class="friend-request-container {
+    max-height: $t$.window-content_H / 2;
+}">
+<h1 class=" {
+    height: ($t$.window-content_H / 10) - 2;
+    fs: ($t$.window-content_H + $t$.window-content_W) / 80;
+}">
+    <i class="fa-solid fa-arrow-down-long"></i> <span>Incoming</span></h1>
+
+<main class=" _friend-request-incoming-container {
+    max-height: $t$.window-content_H / 2 - $t$.friend-request-container@h1_H;
+}">
+
+    
+    <section data-user-code="1234567890" data-type="incoming" class="friend-request-container__request _friend-request {
+        height: $t$.window-content_H / 10; 
+        margin-top: $t$.window-content_H / 80 !i;
+        
+    }">
+
+    <span class=" {
+        height: $t$.friend-request-container__request_H / 1.3;
+        width: $t$.friend-request-container__request_H / 1.3;
+        marginL: ($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) / 2 !i;
+    }" style="background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk6HeOL_Px8Yok2_z3WEHuXdAEwzp3AuthKw&s' );
+    background-size: 100% auto;
+    background-position: center;">
+
+    </span>
+    <aside class=" friend-request-container__request__aside {
+        height: $t$.friend-request-container__request_H / 1.1;
+        width: $t$.friend-request-container__request_W - ($t$.friend-request-container__request@span_W + (($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) * 2));
+        marginR: ($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) / 2 !i;
+    }">
+        <h1 class=" {
+            max-height: $t$.friend-request-container__request__aside_H;
+            width: $t$.friend-request-container__request__aside_W - (($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 8.5);
+            fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+        }">Arthonic martin joe invincible not invicibileaushahsuh</h1>
+        <ul class=" {
+            height: $t$.friend-request-container__request__aside_H / 2;
+            width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 7;
+        }">
+            <i id="accept" onclick="friendRequest(this)" class="fa-solid fa-check {
+                fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+                height: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+                width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+            }"></i>
+            <i id="decline" onclick="friendRequest(this)" class="fa-solid fa-xmark {
+                fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+                height: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+                width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+            }"></i>
+        </ul>
+
+    </aside>
+
+</section>
+    
+</main>
+
+</section>
+<section class="friend-request-container {
+    max-height: $t$.window-content_H / 2;
+}">
+<h1 class=" {
+    height: ($t$.window-content_H / 10) - 2;
+    fs: ($t$.window-content_H + $t$.window-content_W) / 80;
+}">
+    <i class="fa-solid fa-arrow-up-long"></i> <span>Outgoing</span></h1>
+
+<main class=" _friend-request-outgoing-container {
+    max-height: ($t$.window-content_H / 3) - $t$.friend-request-container@h1_H;
+}">
+
+    
+    <section data-user-code="0987654321" data-type="outgoing" class="friend-request-container__request {
+        height: $t$.window-content_H / 12; 
+        margin-top: $t$.window-content_H / 80 !i;
+        
+    }">
+
+    <span class=" {
+        height: $t$.friend-request-container__request_H / 1.3;
+        width: $t$.friend-request-container__request_H / 1.3;
+        marginL: ($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) / 2 !i;
+    }" style="background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk6HeOL_Px8Yok2_z3WEHuXdAEwzp3AuthKw&s' );
+    background-size: 100% auto;
+    background-position: center;">
+
+    </span>
+    <aside class=" friend-request-container__request__aside {
+        height: $t$.friend-request-container__request_H / 1.1;
+        width: $t$.friend-request-container__request_W - ($t$.friend-request-container__request@span_W + (($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) * 2));
+        marginR: ($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) / 2 !i;
+    }">
+        <h1 class=" {
+            max-height: $t$.friend-request-container__request__aside_H;
+            width: $t$.friend-request-container__request__aside_W - (($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 8.5);
+            fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+        }">Arthonic martin joe invincible not invicibileaushahsuh</h1>
+        <ul class=" {
+            height: $t$.friend-request-container__request__aside_H / 2;
+            width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 7;
+        }">
+            <i class="fa-solid fa-check {
+                fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+                height: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+                width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+            }" style="transform: scale(0);"></i>
+            <i id="cancel" onclick="friendRequest(this)" class="fa-solid fa-xmark {
+                fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+                height: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+                width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+            }"></i>
+        </ul>
+
+    </aside>
+
+</section>
+    <section class="friend-request-container__request {
+        height: $t$.window-content_H / 12; 
+        margin-top: $t$.window-content_H / 80 !i;
+        
+    }">
+
+    <span class=" {
+        height: $t$.friend-request-container__request_H / 1.3;
+        width: $t$.friend-request-container__request_H / 1.3;
+        marginL: ($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) / 2 !i;
+    }" style="background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk6HeOL_Px8Yok2_z3WEHuXdAEwzp3AuthKw&s' );
+    background-size: 100% auto;
+    background-position: center;">
+
+    </span>
+    <aside class=" friend-request-container__request__aside {
+        height: $t$.friend-request-container__request_H / 1.1;
+        width: $t$.friend-request-container__request_W - ($t$.friend-request-container__request@span_W + (($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) * 2));
+        marginR: ($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) / 2 !i;
+    }">
+        <h1 class=" {
+            max-height: $t$.friend-request-container__request__aside_H;
+            width: $t$.friend-request-container__request__aside_W - (($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 8.5);
+            fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+        }">Arthonic martin joe invincible not invicibileaushahsuh</h1>
+        <ul class=" {
+            height: $t$.friend-request-container__request__aside_H / 2;
+            width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 7;
+        }">
+            <i class="fa-solid fa-check {
+                fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+                height: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+                width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+            }" style="transform: scale(0);"></i>
+            <i class="fa-solid fa-xmark {
+                fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+                height: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+                width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+            }"></i>
+        </ul>
+
+    </aside>
+
+</section>
+    <section class="friend-request-container__request {
+        height: $t$.window-content_H / 12; 
+        margin-top: $t$.window-content_H / 80 !i;
+        
+    }">
+
+    <span class=" {
+        height: $t$.friend-request-container__request_H / 1.3;
+        width: $t$.friend-request-container__request_H / 1.3;
+        marginL: ($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) / 2 !i;
+    }" style="background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk6HeOL_Px8Yok2_z3WEHuXdAEwzp3AuthKw&s' );
+    background-size: 100% auto;
+    background-position: center;">
+
+    </span>
+    <aside class=" friend-request-container__request__aside {
+        height: $t$.friend-request-container__request_H / 1.1;
+        width: $t$.friend-request-container__request_W - ($t$.friend-request-container__request@span_W + (($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) * 2));
+        marginR: ($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) / 2 !i;
+    }">
+        <h1 class=" {
+            max-height: $t$.friend-request-container__request__aside_H;
+            width: $t$.friend-request-container__request__aside_W - (($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 8.5);
+            fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+        }">Arthonic martin joe invincible not invicibileaushahsuh</h1>
+        <ul class=" {
+            height: $t$.friend-request-container__request__aside_H / 2;
+            width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 7;
+        }">
+            <i class="fa-solid fa-check {
+                fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+                height: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+                width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+            }" style="transform: scale(0);"></i>
+            <i class="fa-solid fa-xmark {
+                fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+                height: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+                width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+            }"></i>
+        </ul>
+
+    </aside>
+
+</section>
+    <section class="friend-request-container__request {
+        height: $t$.window-content_H / 12; 
+        margin-top: $t$.window-content_H / 80 !i;
+        
+    }">
+
+    <span class=" {
+        height: $t$.friend-request-container__request_H / 1.3;
+        width: $t$.friend-request-container__request_H / 1.3;
+        marginL: ($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) / 2 !i;
+    }" style="background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk6HeOL_Px8Yok2_z3WEHuXdAEwzp3AuthKw&s' );
+    background-size: 100% auto;
+    background-position: center;">
+
+    </span>
+    <aside class=" friend-request-container__request__aside {
+        height: $t$.friend-request-container__request_H / 1.1;
+        width: $t$.friend-request-container__request_W - ($t$.friend-request-container__request@span_W + (($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) * 2));
+        marginR: ($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) / 2 !i;
+    }">
+        <h1 class=" {
+            max-height: $t$.friend-request-container__request__aside_H;
+            width: $t$.friend-request-container__request__aside_W - (($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 8.5);
+            fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+        }">Arthonic martin joe invincible not invicibileaushahsuh</h1>
+        <ul class=" {
+            height: $t$.friend-request-container__request__aside_H / 2;
+            width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 7;
+        }">
+            <i class="fa-solid fa-check {
+                fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+                height: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+                width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+            }" style="transform: scale(0);"></i>
+            <i class="fa-solid fa-xmark {
+                fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+                height: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+                width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+            }"></i>
+        </ul>
+
+    </aside>
+
+</section>
+    <section class="friend-request-container__request {
+        height: $t$.window-content_H / 12; 
+        margin-top: $t$.window-content_H / 80 !i;
+        
+    }">
+
+    <span class=" {
+        height: $t$.friend-request-container__request_H / 1.3;
+        width: $t$.friend-request-container__request_H / 1.3;
+        marginL: ($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) / 2 !i;
+    }" style="background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk6HeOL_Px8Yok2_z3WEHuXdAEwzp3AuthKw&s' );
+    background-size: 100% auto;
+    background-position: center;">
+
+    </span>
+    <aside class=" friend-request-container__request__aside {
+        height: $t$.friend-request-container__request_H / 1.1;
+        width: $t$.friend-request-container__request_W - ($t$.friend-request-container__request@span_W + (($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) * 2));
+        marginR: ($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) / 2 !i;
+    }">
+        <h1 class=" {
+            max-height: $t$.friend-request-container__request__aside_H;
+            width: $t$.friend-request-container__request__aside_W - (($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 8.5);
+            fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+        }">Arthonic martin joe invincible not invicibileaushahsuh</h1>
+        <ul class=" {
+            height: $t$.friend-request-container__request__aside_H / 2;
+            width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 7;
+        }">
+            <i class="fa-solid fa-check {
+                fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+                height: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+                width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+            }" style="transform: scale(0);"></i>
+            <i class="fa-solid fa-xmark {
+                fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+                height: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+                width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+            }"></i>
+        </ul>
+
+    </aside>
+
+</section>
+    <section class="friend-request-container__request {
+        height: $t$.window-content_H / 12; 
+        margin-top: $t$.window-content_H / 80 !i;
+        
+    }">
+
+    <span class=" {
+        height: $t$.friend-request-container__request_H / 1.3;
+        width: $t$.friend-request-container__request_H / 1.3;
+        marginL: ($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) / 2 !i;
+    }" style="background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk6HeOL_Px8Yok2_z3WEHuXdAEwzp3AuthKw&s' );
+    background-size: 100% auto;
+    background-position: center;">
+
+    </span>
+    <aside class=" friend-request-container__request__aside {
+        height: $t$.friend-request-container__request_H / 1.1;
+        width: $t$.friend-request-container__request_W - ($t$.friend-request-container__request@span_W + (($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) * 2));
+        marginR: ($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) / 2 !i;
+    }">
+        <h1 class=" {
+            max-height: $t$.friend-request-container__request__aside_H;
+            width: $t$.friend-request-container__request__aside_W - (($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 8.5);
+            fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+        }">Arthonic martin joe invincible not invicibileaushahsuh</h1>
+        <ul class=" {
+            height: $t$.friend-request-container__request__aside_H / 2;
+            width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 7;
+        }">
+            <i class="fa-solid fa-check {
+                fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+                height: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+                width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+            }" style="transform: scale(0);"></i>
+            <i class="fa-solid fa-xmark {
+                fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+                height: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+                width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+            }"></i>
+        </ul>
+
+    </aside>
+
+</section>
+    <section class="friend-request-container__request {
+        height: $t$.window-content_H / 12; 
+        margin-top: $t$.window-content_H / 80 !i;
+        
+    }">
+
+    <span class=" {
+        height: $t$.friend-request-container__request_H / 1.3;
+        width: $t$.friend-request-container__request_H / 1.3;
+        marginL: ($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) / 2 !i;
+    }" style="background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk6HeOL_Px8Yok2_z3WEHuXdAEwzp3AuthKw&s' );
+    background-size: 100% auto;
+    background-position: center;">
+
+    </span>
+    <aside class=" friend-request-container__request__aside {
+        height: $t$.friend-request-container__request_H / 1.1;
+        width: $t$.friend-request-container__request_W - ($t$.friend-request-container__request@span_W + (($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) * 2));
+        marginR: ($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) / 2 !i;
+    }">
+        <h1 class=" {
+            max-height: $t$.friend-request-container__request__aside_H;
+            width: $t$.friend-request-container__request__aside_W - (($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 8.5);
+            fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+        }">Arthonic martin joe invincible not invicibileaushahsuh</h1>
+        <ul class=" {
+            height: $t$.friend-request-container__request__aside_H / 2;
+            width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 7;
+        }">
+            <i class="fa-solid fa-check {
+                fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+                height: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+                width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+            }" style="transform: scale(0);"></i>
+            <i class="fa-solid fa-xmark {
+                fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+                height: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+                width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+            }"></i>
+        </ul>
+
+    </aside>
+
+</section>
+    <section class="friend-request-container__request {
+        height: $t$.window-content_H / 12; 
+        margin-top: $t$.window-content_H / 80 !i;
+        
+    }">
+
+    <span class=" {
+        height: $t$.friend-request-container__request_H / 1.3;
+        width: $t$.friend-request-container__request_H / 1.3;
+        marginL: ($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) / 2 !i;
+    }" style="background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk6HeOL_Px8Yok2_z3WEHuXdAEwzp3AuthKw&s' );
+    background-size: 100% auto;
+    background-position: center;">
+
+    </span>
+    <aside class=" friend-request-container__request__aside {
+        height: $t$.friend-request-container__request_H / 1.1;
+        width: $t$.friend-request-container__request_W - ($t$.friend-request-container__request@span_W + (($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) * 2));
+        marginR: ($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) / 2 !i;
+    }">
+        <h1 class=" {
+            max-height: $t$.friend-request-container__request__aside_H;
+            width: $t$.friend-request-container__request__aside_W - (($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 8.5);
+            fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+        }">Arthonic martin joe invincible not invicibileaushahsuh</h1>
+        <ul class=" {
+            height: $t$.friend-request-container__request__aside_H / 2;
+            width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 7;
+        }">
+            <i class="fa-solid fa-check {
+                fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+                height: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+                width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+            }" style="transform: scale(0);"></i>
+            <i class="fa-solid fa-xmark {
+                fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+                height: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+                width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+            }"></i>
+        </ul>
+
+    </aside>
+
+</section>
+    <section class="friend-request-container__request {
+        height: $t$.window-content_H / 12; 
+        margin-top: $t$.window-content_H / 80 !i;
+        
+    }">
+
+    <span class=" {
+        height: $t$.friend-request-container__request_H / 1.3;
+        width: $t$.friend-request-container__request_H / 1.3;
+        marginL: ($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) / 2 !i;
+    }" style="background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk6HeOL_Px8Yok2_z3WEHuXdAEwzp3AuthKw&s' );
+    background-size: 100% auto;
+    background-position: center;">
+
+    </span>
+    <aside class=" friend-request-container__request__aside {
+        height: $t$.friend-request-container__request_H / 1.1;
+        width: $t$.friend-request-container__request_W - ($t$.friend-request-container__request@span_W + (($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) * 2));
+        marginR: ($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) / 2 !i;
+    }">
+        <h1 class=" {
+            max-height: $t$.friend-request-container__request__aside_H;
+            width: $t$.friend-request-container__request__aside_W - (($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 8.5);
+            fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+        }">Arthonic martin joe invincible not invicibileaushahsuh</h1>
+        <ul class=" {
+            height: $t$.friend-request-container__request__aside_H / 2;
+            width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 7;
+        }">
+            <i class="fa-solid fa-check {
+                fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+                height: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+                width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+            }" style="transform: scale(0);"></i>
+            <i class="fa-solid fa-xmark {
+                fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+                height: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+                width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+            }"></i>
+        </ul>
+
+    </aside>
+
+</section>
+    <section class="friend-request-container__request {
+        height: $t$.window-content_H / 12; 
+        margin-top: $t$.window-content_H / 80 !i;
+        
+    }">
+
+    <span class=" {
+        height: $t$.friend-request-container__request_H / 1.3;
+        width: $t$.friend-request-container__request_H / 1.3;
+        marginL: ($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) / 2 !i;
+    }" style="background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk6HeOL_Px8Yok2_z3WEHuXdAEwzp3AuthKw&s' );
+    background-size: 100% auto;
+    background-position: center;">
+
+    </span>
+    <aside class=" friend-request-container__request__aside {
+        height: $t$.friend-request-container__request_H / 1.1;
+        width: $t$.friend-request-container__request_W - ($t$.friend-request-container__request@span_W + (($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) * 2));
+        marginR: ($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) / 2 !i;
+    }">
+        <h1 class=" {
+            max-height: $t$.friend-request-container__request__aside_H;
+            width: $t$.friend-request-container__request__aside_W - (($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 8.5);
+            fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+        }">Arthonic martin joe invincible not invicibileaushahsuh</h1>
+        <ul class=" {
+            height: $t$.friend-request-container__request__aside_H / 2;
+            width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 7;
+        }">
+            <i class="fa-solid fa-check {
+                fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+                height: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+                width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+            }" style="transform: scale(0);"></i>
+            <i class="fa-solid fa-xmark {
+                fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+                height: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+                width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+            }"></i>
+        </ul>
+
+    </aside>
+
+</section>
+    <section class="friend-request-container__request {
+        height: $t$.window-content_H / 12; 
+        margin-top: $t$.window-content_H / 80 !i;
+        
+    }">
+
+    <span class=" {
+        height: $t$.friend-request-container__request_H / 1.3;
+        width: $t$.friend-request-container__request_H / 1.3;
+        marginL: ($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) / 2 !i;
+    }" style="background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk6HeOL_Px8Yok2_z3WEHuXdAEwzp3AuthKw&s' );
+    background-size: 100% auto;
+    background-position: center;">
+
+    </span>
+    <aside class=" friend-request-container__request__aside {
+        height: $t$.friend-request-container__request_H / 1.1;
+        width: $t$.friend-request-container__request_W - ($t$.friend-request-container__request@span_W + (($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) * 2));
+        marginR: ($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) / 2 !i;
+    }">
+        <h1 class=" {
+            max-height: $t$.friend-request-container__request__aside_H;
+            width: $t$.friend-request-container__request__aside_W - (($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 8.5);
+            fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+        }">Arthonic martin joe invincible not invicibileaushahsuh</h1>
+        <ul class=" {
+            height: $t$.friend-request-container__request__aside_H / 2;
+            width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 7;
+        }">
+            <i class="fa-solid fa-check {
+                fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+                height: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+                width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+            }" style="transform: scale(0);"></i>
+            <i class="fa-solid fa-xmark {
+                fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+                height: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+                width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+            }"></i>
+        </ul>
+
+    </aside>
+
+</section>
+    <section class="friend-request-container__request {
+        height: $t$.window-content_H / 12; 
+        margin-top: $t$.window-content_H / 80 !i;
+        
+    }">
+
+    <span class=" {
+        height: $t$.friend-request-container__request_H / 1.3;
+        width: $t$.friend-request-container__request_H / 1.3;
+        marginL: ($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) / 2 !i;
+    }" style="background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk6HeOL_Px8Yok2_z3WEHuXdAEwzp3AuthKw&s' );
+    background-size: 100% auto;
+    background-position: center;">
+
+    </span>
+    <aside class=" friend-request-container__request__aside {
+        height: $t$.friend-request-container__request_H / 1.1;
+        width: $t$.friend-request-container__request_W - ($t$.friend-request-container__request@span_W + (($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) * 2));
+        marginR: ($t$.friend-request-container__request_H - ($t$.friend-request-container__request_H / 1.3)) / 2 !i;
+    }">
+        <h1 class=" {
+            max-height: $t$.friend-request-container__request__aside_H;
+            width: $t$.friend-request-container__request__aside_W - (($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 8.5);
+            fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+        }">Arthonic martin joe invincible not invicibileaushahsuh</h1>
+        <ul class=" {
+            height: $t$.friend-request-container__request__aside_H / 2;
+            width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 7;
+        }">
+            <i class="fa-solid fa-check {
+                fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+                height: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+                width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+            }" style="transform: scale(0);"></i>
+            <i class="fa-solid fa-xmark {
+                fs: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 30;
+                height: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+                width: ($t$.friend-request-container__request__aside_H + $t$.friend-request-container__request__aside_W) / 15;
+            }"></i>
+        </ul>
+
+    </aside>
+
+</section>
+   
+</main>
+
+</section>
+
+
+
+
+    </section>
+    <section class="window-content _window-content-  _window-content-normal">
+<img src="https://i.postimg.cc/SKPCnLXw/upscalemedia-transformed.png" alt="" srcset="">
+            
+    </section>
+</section>
+
+
+</section>
+<section class="___layout layout-phone">
+    
+<section class="phone-nav" id="phone-nav">
+    <section onclick="phoneMainMenu(true)" class="phone-nav__nav-icon {
+        width: $t$.phone-nav_H;
+    }">
+        <img src="https://i.postimg.cc/bwDfPthg/Menu-Closed.png" alt="" srcset="">
+    </section>
+    <section class="phone-nav-areas _sidebar-areas {
+        width: $t$.phone-nav_W - $t$.phone-nav@.phone-nav__nav-icon_W;
+    }">
+    <section onclick="selectPage(this)" data-page="FRIEND" class="phone-nav-areas__area _sidebar-areas-page _sidebar-friends {
+        height: $t$.phone-nav-areas_H / 1.5;
+        paddingL: $t$.phone-nav-areas_W / 20 !i;
+        paddingR: $t$.phone-nav-areas_W / 20 !i;
+        max-width: $t$.phone-nav-areas_W / 1.5;
+        margin-left: ($t$.phone-nav-areas_H - ($t$.phone-nav-areas_H / 1.5)) / 2 !i;
+        
+    } ">
+    <h6 class="phone-notification _notification {
+        height: ($t$.phone-nav-areas_H + $t$.phone-nav-areas_W) / 20;
+        width: ($t$.phone-nav-areas_H + $t$.phone-nav-areas_W) / 20;
+        fs: (($t$.phone-nav-areas_H + $t$.phone-nav-areas_W) / 10) / 6;
+    }">12</h6>
+        <i class="fa-solid fa-users {
+            fs: ($t$.phone-nav-areas_H + $t$.phone-nav-areas_W) / 20;
+        }"></i>
+        <span class=" {
+            fs: ($t$.phone-nav-areas_H + $t$.phone-nav-areas_W) / 25;
+            max-width: ($t$.phone-nav-areas_W / 1.5) - $t$.phone-nav-areas__area@i_W;
+        }">
+    Friends    
+    </span>
+    </section>
+    <section onclick="selectPage(this)" data-page="MANAGEMENT" class="phone-nav-areas__area _sidebar-areas-page _sidebar-management {
+        height: $t$.phone-nav-areas_H / 1.5;
+        paddingL: $t$.phone-nav-areas_W / 20 !i;
+        paddingR: $t$.phone-nav-areas_W / 20 !i;
+        max-width: $t$.phone-nav-areas_W / 1.5;
+        margin-left: ($t$.phone-nav-areas_H - ($t$.phone-nav-areas_H / 1.5)) / 2 !i;
+        
+    } ">
+    <h6 class="phone-notification _notification {
+        height: ($t$.phone-nav-areas_H + $t$.phone-nav-areas_W) / 20;
+        width: ($t$.phone-nav-areas_H + $t$.phone-nav-areas_W) / 20;
+        fs: (($t$.phone-nav-areas_H + $t$.phone-nav-areas_W) / 10) / 6;
+    }">12</h6>
+        <i class="fa-solid fa-screwdriver-wrench {
+            fs: ($t$.phone-nav-areas_H + $t$.phone-nav-areas_W) / 20;
+        }"></i>
+        <span class=" {
+            fs: ($t$.phone-nav-areas_H + $t$.phone-nav-areas_W) / 25;
+            max-width: ($t$.phone-nav-areas_W / 1.5) - $t$.phone-nav-areas__area@i_W;
+        }">
+    Management    
+    </span>
+    </section>
+   
+   
+ 
+    
+
+    </section>
+</section>
+
+<section class="phone-menu-dropdown sidebar" id="phone-menu-dropdown">
+<section class="phone-menu-dropdown__header {
+    height: .phone-nav_H * 1.5;
+}">
+
+<section id="phone-menu-dropdown-close-icon" class="phone-menu-dropdown__header__icon {
+    width:  .phone-nav__nav-icon_W;
+    height: .phone-nav__nav-icon_W;
+    
+}">
+    <img src="https://i.postimg.cc/TYHvBcZh/Menu-Opened.png" alt="" srcset="">
+</section>
+<section class="phone-menu-dropdown__header__logo {
+    width: $t$.phone-menu-dropdown__header_W - .phone-menu-dropdown__header__icon_W;
+}">
+
+    <img src="https://i.postimg.cc/DfgYt1x9/usydhuisdh-Untitled.png" alt="" srcset="">
+</section>
+
+</section>
+
+<section class="phone-menu-dropdown__board sidebar-contents__head">
+
+</section>
+
+<section class="phone-menu-dropdown__pages _sidebar-areas {
+    height: (.phone-menu-dropdown_H - ($t$.phone-menu-dropdown@.phone-menu-dropdown__header_H + $t$.phone-menu-dropdown@.phone-menu-dropdown__board_H)) / 1.5;
+    marginT: (.phone-menu-dropdown_H - ($t$.phone-menu-dropdown@.phone-menu-dropdown__header_H + $t$.phone-menu-dropdown@.phone-menu-dropdown__board_H)) / 50 !i;
+
+}">
+
+<section onclick="selectPage(this)" data-page="FRIEND" class="phone-menu-dropdown__pages__page _sidebar-areas-page _sidebar-friends  {
+    height: .phone-menu-dropdown__pages_H / 6.5;
+}">
+<section class="phone-dropdown-menu__page__notification _notification {
+    height: ($t$.phone-menu-dropdown__pages_H + $t$.phone-menu-dropdown__pages_W) / 30;
+    width: ($t$.phone-menu-dropdown__pages_H + $t$.phone-menu-dropdown__pages_W) / 30;
+    fs: ($t$.phone-menu-dropdown__pages@.phone-dropdown-menu__page__notification_H + $t$.phone-menu-dropdown__pages@.phone-dropdown-menu__page__notification_W) / 5;
+}">
+    
+</section>
+
+    <main class=" {
+        width: $t$.phone-menu-dropdown__pages__page_H - 8;
+        fs: ($t$.phone-menu-dropdown__pages__page_H + $t$.phone-menu-dropdown__pages__page_W) / 18;
+    }">
+        <i class="fa-solid fa-users"></i>
+    </main>
+    <span class=" {
+        width: $t$.phone-menu-dropdown__pages__page_W - ($t$.phone-menu-dropdown__pages__page@main_W + 16);
+        fs: ($t$.phone-menu-dropdown__pages__page_H + $t$.phone-menu-dropdown__pages__page_W) / 20;
+    }">Friends</span>
+</section>
+<section onclick="selectPage(this)" data-page="MANAGEMENT" class="phone-menu-dropdown__pages__page _sidebar-areas-page _sidebar-management  {
+    height: .phone-menu-dropdown__pages_H / 6.5;
+}">
+<section class="phone-dropdown-menu__page__notification _notification {
+    height: ($t$.phone-menu-dropdown__pages_H + $t$.phone-menu-dropdown__pages_W) / 30;
+    width: ($t$.phone-menu-dropdown__pages_H + $t$.phone-menu-dropdown__pages_W) / 30;
+    fs: ($t$.phone-menu-dropdown__pages@.phone-dropdown-menu__page__notification_H + $t$.phone-menu-dropdown__pages@.phone-dropdown-menu__page__notification_W) / 5;
+}">
+    1
+</section>
+    <main class=" {
+        width: $t$.phone-menu-dropdown__pages__page_H - 8;
+        fs: ($t$.phone-menu-dropdown__pages__page_H + $t$.phone-menu-dropdown__pages__page_W) / 18;
+    }">
+        <i class="fa-solid fa-screwdriver-wrench"></i>
+    </main>
+    <span class=" {
+        width: $t$.phone-menu-dropdown__pages__page_W - ($t$.phone-menu-dropdown__pages__page@main_W + 16);
+        fs: ($t$.phone-menu-dropdown__pages__page_H + $t$.phone-menu-dropdown__pages__page_W) / 20;
+    }">Management</span>
+</section>
+
+
+
+
+</section>
+<section class="phone-menu-dropdown__account {
+    height: ((.phone-menu-dropdown_H - ($t$.phone-menu-dropdown@.phone-menu-dropdown__header_H + $t$.phone-menu-dropdown@.phone-menu-dropdown__board_H)) / 6) - (.phone-menu-dropdown_H - ($t$.phone-menu-dropdown@.phone-menu-dropdown__header_H + $t$.phone-menu-dropdown@.phone-menu-dropdown__board_H)) / 100;
+    marginT: (.phone-menu-dropdown_H - ($t$.phone-menu-dropdown@.phone-menu-dropdown__header_H + $t$.phone-menu-dropdown@.phone-menu-dropdown__board_H)) / 50 !i;
+    width: $t$.phone-menu-dropdown_W / 1.1;
+}">
+
+<section onclick="openProfile()" class="phone-menu-dropdown__account__profile {
+    height: $t$.phone-menu-dropdown__account_H / 1.5;
+    width: ($t$.phone-menu-dropdown__account_W - ($t$.phone-menu-dropdown__account_H - ($t$.phone-menu-dropdown__account_H / 1.5))) / 1.3;
+    margin-left: ($t$.phone-menu-dropdown__account_H - ($t$.phone-menu-dropdown__account_H / 1.5)) / 2 !i;
+}">
+    <aside style="
+        background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk6HeOL_Px8Yok2_z3WEHuXdAEwzp3AuthKw&s');
+        background-size: 100% auto;
+        background-position: center;
+        " class=" {
+        width: $t$.phone-menu-dropdown__account__profile_H;
+        height: $t$.phone-menu-dropdown__account__profile_H;
+    }">
+
+    </aside>
+    <h1 class=" {
+        width: ($t$.phone-menu-dropdown__account__profile_W - $t$.phone-menu-dropdown__account__profile@aside_W) / 1.1;
+        fs: (.phone-menu-dropdown__account__profile_H + .phone-menu-dropdown__account__profile_W) / 20;
+    }">
+Arthonic martin joe
+</h1>
+</section>
+<section onclick="openSettings()" class="phone-setting-icon {
+    height: .phone-menu-dropdown__account__profile_H;
+    width: (.phone-menu-dropdown__account_W - (($t$.phone-menu-dropdown__account_W - ($t$.phone-menu-dropdown__account_H - ($t$.phone-menu-dropdown__account_H / 1.5))) / 1.3)) / 2;
+    margin-right: ($t$.phone-menu-dropdown__account_H - ($t$.phone-menu-dropdown__account_H / 1.5)) / 2 !i;
+    fs: (.phone-menu-dropdown__account__profile_H + .phone-menu-dropdown__account__profile_W) / 15;
+}">
+    <i class="fa-solid fa-gear"></i>
+</section>
+
+</section>
+
+
+
+    </section>
+</section>
+
+
+    
+
+    <script src="./js/Chat.js"></script>
+    <script src="./js/mainClassSyntax.js"></script>
+</body>
+</html>
+
+<!--
+<reminder date="12-08-2025">
+
+abhi menu open hone per phone nav ke element fade ho jana chaiye
+acha effect rhe ge
+
+    -->

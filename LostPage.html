@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/LostPage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body class="page" id="page">
+    <if-block device="pc || tab || lap || tv">
+
+    <section class="logo {
+        height: .page_H / 10;
+        width: .page_W / 8;
+    }">
+    <img class=" {
+        width: $t$.logo_W / 1.2;    
+    }" src="https://i.postimg.cc/3wRXXvyy/blue-upscalemedia-transformed.png" alt="" srcset="">
+    </section>
+
+    
+    </if-block>
+<if-block device="phone">
+    <section class="logo {
+        height: .page_H / 10;
+        width: .page_W / 3;
+    }" style="opacity: 0.8;">
+    <img class=" {
+        width: $t$.logo_W / 1.5;    
+    }" src="https://i.postimg.cc/3wRXXvyy/blue-upscalemedia-transformed.png" alt="" srcset="">
+    </section>
+    </if-block>
+
+
+<section class="background-page {
+    height: .page_H;
+    width: .page_W;
+}">
+<if-block device="pc || tab || lap tv">
+
+<img class=" {
+    width: .page_W * 1.150;
+    min-height: .page_H * 1.150;
+}" src="https://i.pinimg.com/originals/03/0b/aa/030baa83576b513987576aca335bcb35.gif" alt="" srcset="">
+
+</if-block>
+<if-block device="phone">
+
+<img class=" {
+    width: .page_W * 1.3;
+    min-height: .page_H * 1.150;
+}" src="https://i.pinimg.com/originals/03/0b/aa/030baa83576b513987576aca335bcb35.gif" alt="" srcset="">
+
+</if-block>
+</section>
+<if-block device="pc || tab || lap || tv">
+
+
+<section class="main-card {
+    height: .page_H / 2;
+    width: .page_W / 2;
+}">
+<section class="heading {
+    height: $t$.main-card_H;
+    width: $t$.main-card_W;
+}">
+    <h1 class=" {
+        fs: ($t$.heading_H + $t$.heading_W) / 15;
+    }">Oops!</h1>
+    <h2 class=" {
+        fs: ($t$.heading_H + $t$.heading_W) / 40;
+    }">Looks like you are lost in the ocean</h2>
+    <h3 class=" {
+        fs: ($t$.heading_H + $t$.heading_W) / 60;
+    }">You’ve landed on a broken link</h3>
+
+
+    <!-- min-height: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 2; -->
+    <section class="sub-heading {
+        height: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 1.5;
+        width: $t$.heading_W / 1.1;
+        marginT: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 8 !i;
+    }">
+        <h1>
+            Looking for one of these instead?
+        </h1>
+        <main class=" pages {
+            height: (($t$.sub-heading_H - $t$.sub-heading@h1_H) / 1.4) - (($t$.sub-heading_H - $t$.sub-heading@h1_H) / 10);
+            width: $t$.sub-heading_W / 1.1;
+            marginT: (($t$.sub-heading_H - $t$.sub-heading@h1_H) / 10) !i;
+        }">
+
+            <a href="/Home/Index" class=" home pages-link {
+                height: $t$.pages_H / 2;
+                paddingB: ($t$.pages_H + $t$.pages_W) / 150 !i;
+                paddingT: ($t$.pages_H + $t$.pages_W) / 150 !i;
+                paddingL: ($t$.pages_H + $t$.pages_W) / 50 !i;
+                paddingR: ($t$.pages_H + $t$.pages_W) / 50 !i;
+                max-width: $t$.pages_W / 3.5;
+                fs: ($t$.pages_H + $t$.pages_W) / 50;
+            }">
+                <i class="fa-solid fa-home"></i>
+                <span>Home</span>
+            </a>
+        <a href="/account/signup" class=" register pages-link {
+            height: $t$.pages_H / 2;
+            paddingB: ($t$.pages_H + $t$.pages_W) / 150 !i;
+            paddingT: ($t$.pages_H + $t$.pages_W) / 150 !i;
+            paddingL: ($t$.pages_H + $t$.pages_W) / 50 !i;
+            paddingR: ($t$.pages_H + $t$.pages_W) / 50 !i;
+            max-width: $t$.pages_W / 3.5;
+            fs: ($t$.pages_H + $t$.pages_W) / 50;
+            margin-left: $t$.pages_W / 50 !i;
+            margin-bottom: $t$.pages_W / 50 !i;
+        }">
+            <i class="fa-solid fa-door-open"></i>
+            <span>Register</span>
+        </a>
+        <a href="/Account/Login" class=" login pages-link {
+            height: $t$.pages_H / 2;
+            paddingB: ($t$.pages_H + $t$.pages_W) / 150 !i;
+            paddingT: ($t$.pages_H + $t$.pages_W) / 150 !i;
+            paddingL: ($t$.pages_H + $t$.pages_W) / 50 !i;
+            paddingR: ($t$.pages_H + $t$.pages_W) / 50 !i;
+            max-width: $t$.pages_W / 3.5;
+            fs: ($t$.pages_H + $t$.pages_W) / 50;
+            margin-left: $t$.pages_W / 50 !i;
+            margin-bottom: $t$.pages_W / 50 !i;
+        }">
+            <i class="fa-solid fa-user"></i>
+            <span>Login</span>
+        </a>
+        <a href="/Account/ResetPassword" class=" reset-password pages-link {
+            height: $t$.pages_H / 2;
+            paddingB: ($t$.pages_H + $t$.pages_W) / 150 !i;
+            paddingT: ($t$.pages_H + $t$.pages_W) / 150 !i;
+            paddingL: ($t$.pages_H + $t$.pages_W) / 50 !i;
+            paddingR: ($t$.pages_H + $t$.pages_W) / 50 !i;
+            max-width: $t$.pages_W / 3.5;
+            fs: ($t$.pages_H + $t$.pages_W) / 50;
+            margin-left: $t$.pages_W / 50 !i;
+            margin-bottom: $t$.pages_W / 50 !i;
+        }">
+            <i class="fa-solid fa-key"></i>
+            <span>Reset password</span>
+        </a>
+        <a href="/User/index" class=" chat pages-link {
+            height: $t$.pages_H / 2;
+            paddingB: ($t$.pages_H + $t$.pages_W) / 150 !i;
+            paddingT: ($t$.pages_H + $t$.pages_W) / 150 !i;
+            paddingL: ($t$.pages_H + $t$.pages_W) / 50 !i;
+            paddingR: ($t$.pages_H + $t$.pages_W) / 50 !i;
+            max-width: $t$.pages_W / 3.5;
+            fs: ($t$.pages_H + $t$.pages_W) / 50;
+            margin-left: $t$.pages_W / 50 !i;
+            margin-bottom: $t$.pages_W / 50 !i;
+        }">
+            <i class="fa-solid fa-comments"></i>
+            <span>Chat</span>
+        </a>
+
+        </main>
+    </section>
+
+
+
+</section>
+
+
+</section>
+</if-block>
+<if-block device="phone">
+<section class="main-card {
+    height: .page_H / 1.5;
+    width: .page_W / 1.2;
+}">
+<section class="heading {
+    height: $t$.main-card_H;
+    width: $t$.main-card_W;
+}">
+    <h1 class=" {
+        fs: ($t$.heading_H + $t$.heading_W) / 15;
+    }">Oops!</h1>
+    <h2 style="text-align: center;" class=" {
+        fs: ($t$.heading_H + $t$.heading_W) / 39;
+    }">Looks like you are lost in the ocean</h2>
+    <h3 class=" {
+        fs: ($t$.heading_H + $t$.heading_W) / 49;
+    }">You’ve landed on a broken link</h3>
+
+
+    <!-- min-height: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 2; -->
+    <section class="sub-heading {
+        max-height: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 1.1;
+        width: $t$.heading_W;
+        marginT: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 16 !i;
+        fs: ($t$.main-card@.sub-heading_H + $t$.main-card@.sub-heading_W) / 60;
+    }">
+        <h1 class=" {
+            marginT:($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 30 !i;
+        }">
+            Looking for one of these instead?
+        </h1>
+        <main class=" pages {
+            max-height: (($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 1.1) - ($t$.sub-heading@h1_H + (($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 15));
+            
+            width: $t$.sub-heading_W / 1.1;
+            marginT: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 30 !i;
+            marginB: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 30 !i;
+        }" style="justify-content: flex-start;">
+
+            <a href="/Home/Index" class=" home pages-link {
+                height: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 30;
+                paddingB: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 30 !i;
+                paddingT: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 30 !i;
+                paddingL: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 20 !i;
+                paddingR: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 20 !i;
+                max-width: $t$.pages_W / 3.5;
+                margin-right: ($t$.pages_H + $t$.pages_W) / 40 !i;
+                margin-bottom: ($t$.pages_H + $t$.pages_W) / 30 !i;
+                fs: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 30;
+            }">
+                <i class="fa-solid fa-home"></i>
+                <span>Home</span>
+            </a>
+       
+            <a href="/Account/SignUp" class=" home pages-link {
+                height: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 30;
+                paddingB: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 30 !i;
+                paddingT: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 30 !i;
+                paddingL: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 20 !i;
+                paddingR: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 20 !i;
+                max-width: $t$.pages_W / 3.5;
+                margin-right: ($t$.pages_H + $t$.pages_W) / 40 !i;
+                margin-bottom: ($t$.pages_H + $t$.pages_W) / 30 !i;
+                fs: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 30;
+            }">
+                <i class="fa-solid fa-door-open"></i>
+                <span>Register</span>
+            </a>
+       
+            <a href="/Account/Login" class=" home pages-link {
+                height: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 30;
+                paddingB: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 30 !i;
+                paddingT: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 30 !i;
+                paddingL: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 20 !i;
+                paddingR: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 20 !i;
+                max-width: $t$.pages_W / 3.5;
+                margin-right: ($t$.pages_H + $t$.pages_W) / 40 !i;
+                margin-bottom: ($t$.pages_H + $t$.pages_W) / 30 !i;
+                fs: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 30;
+            }">
+                <i class="fa-solid fa-user"></i>
+                <span>Login</span>
+            </a>
+       
+            <a href="/Account/ResetPassword" class=" home pages-link {
+                height: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 30;
+                paddingB: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 30 !i;
+                paddingT: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 30 !i;
+                paddingL: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 20 !i;
+                paddingR: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 20 !i;
+                max-width: $t$.pages_W / 2;
+                margin-right: ($t$.pages_H + $t$.pages_W) / 40 !i;
+                margin-bottom: ($t$.pages_H + $t$.pages_W) / 30 !i;
+                fs: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 30;
+            }">
+                <i class="fa-solid fa-key"></i>
+                <span>Reset password</span>
+            </a>
+       
+            <a href="/User/Index" class=" home pages-link {
+                height: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 30;
+                paddingB: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 30 !i;
+                paddingT: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 30 !i;
+                paddingL: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 20 !i;
+                paddingR: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 20 !i;
+                max-width: $t$.pages_W / 3.5;
+                margin-right: ($t$.pages_H + $t$.pages_W) / 40 !i;
+                margin-bottom: ($t$.pages_H + $t$.pages_W) / 30 !i;
+                fs: ($t$.heading_H - ($t$.heading@h1_H + $t$.heading@h2_H + $t$.heading@h3_H)) / 30;
+            }">
+                <i class="fa-solid fa-comments"></i>
+                <span>Chat</span>
+            </a>
+       
+
+
+</section>
+
+
+</section>
+</if-block>
+    <script src="./js/mainClassSyntax.js"></script>
+</body>
+</html>
